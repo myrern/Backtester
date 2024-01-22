@@ -1,6 +1,7 @@
 import pandas as pd
 import numpy as np
 from DNNModel import *
+from TechnicalIndicators import *
 import matplotlib.pyplot as plt
 plt.style.use("seaborn-v0_8")
 pd.set_option('display.float_format', lambda x: '%.5f' % x)
@@ -24,60 +25,39 @@ class Backtester:
         self.original_df.set_index('Time', inplace=True)
 
         self.data = self.original_df.copy()
-
-        # FOR TESTING PURPOSES
-        self.data["test_price"] = self.data["Bid_c"]
-        
+        self.add_spread()
+    
+    def add_spread(self):
+        self.data["Mid_Close"] = (self.data["Bid_c"].astype(float) + self.data["Ask_c"].astype(float)) / 2
+        self.data["Spread"] = self.data["Ask_c"].astype(float) - self.data["Bid_c"].astype(float)
         self.apply_strategies()
     
     def apply_strategies(self):
+        self.technical_indicators = TechnicalIndicators(self.data)
+        rsi_buy = 30
+        rsi_sell = 70
         # Apply strategies here
-        self.data["Returns"] = np.log(self.data["test_price"]/self.data["test_price"].shift(1))
-        self.data["Direction"] = np.where(self.data["Returns"] > 0, 1, 0)
-        self.data.dropna(inplace=True)
-
-        self.columns = ["Volume", "Direction"]
-
-        self.split_data()
-    
-    def split_data(self):
-        split = int(len(self.data) * 0.66)
-        self.train = self.data.iloc[:split].copy()
-        self.test = self.data.iloc[split:].copy()
-
-        self.standardize_train_data()
+        self.data["RSI"] = self.technical_indicators.RSI(period=14, column="Bid_c")
+        self.data["Returns"] = np.log(self.data["Mid_close"]/self.data["Mid_close"].shift(1))
+        self.data["Position"] = 0
+        self.data["Position"] = np.where(self.data['RSI'] < rsi_buy, 1, 
+                                       np.where(self.data['RSI'] > rsi_sell, -1, 0))
+        self.data["Strategy"] = self.data["Position"].shift(1) * self.data["Returns"]
         
-    def standardize_train_data(self):
-        self.mu, self.std = self.train.mean(), self.train.std()
-        self.train_standardized = (self.train - self.mu) / self.std
+        self.data.dropna(inplace=True)
+        print(self.data.head())
 
-        self.create_and_fit_model()
-    
-    def create_and_fit_model(self):
-        set_seeds(100)
-        self.model = create_model(hl=2, hu=100, dropout=True, input_dim=len(self.columns))
-        self.model.fit(x = self.train_standardized[self.columns], y = self.train["Direction"], epochs = 2, verbose = False,
-          validation_split = 0.2, shuffle = False, class_weight = cw(self.train))
-        self.model.evaluate(self.train_standardized[self.columns], self.train["Direction"])
-        self.prediction = self.model.predict(self.train_standardized[self.columns])
+        #plot data
+        self.data["Hold_Returns"] = self.data["Returns"].cumsum().apply(np.exp)
+        self.data["Strategy_Returns"] = self.data["Strategy"].cumsum().apply(np.exp)
+        #self.data[].plot(figsize=(12,8), title=f"{self.asset_name} {self.asset_type}")
 
-        self.forward_test()
-    
-    def forward_test(self):
-        self.test_standardized = (self.test - self.train.mean()) / self.train.std()
-        self.model.evaluate(self.test_standardized[self.columns], self.test["Direction"])
-        self.test["Probability"] = self.model.predict(self.test_standardized[self.columns])
-        self.test["Position"] = np.where(self.test["Probability"] < 0.50, -1, np.nan)
-        self.test["Position"] = np.where(self.test["Probability"] > 0.50, 1, self.test["Position"])
+        # Create a figure and two subplots: one for Returns, one for RSI
+        fig, (ax1) = plt.subplots(1, sharex=True)
 
-        self.test["Strategy"] = self.test["Position"] * self.test["Returns"]
-        self.test["cReturns"] = self.test["Returns"].cumsum().apply(np.exp)
-        self.test["cStrategy"] = self.test["Strategy"].cumsum().apply(np.exp)
-
-        print(self.test.tail(30))
-
-        self.plot_results()
-    
-    def plot_results(self):
-        self.test[["cReturns", "cStrategy"]].plot()
+        # Plot Returns on the first subplot
+        ax1.plot(self.data["Strategy_Returns"][:500], label='Strategy Returns')
+        ax1.plot(self.data["Hold_Returns"][:500], label='Hold Returns')
+        ax1.set_title('Returns')
+        ax1.legend()  # Display the legend
         plt.show()
