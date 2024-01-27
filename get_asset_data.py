@@ -1,17 +1,21 @@
-from dotenv import load_dotenv
+#from dotenv import load_dotenv
 import os
 import requests
 import pandas as pd
 import logging
 import json
 
+api_key = "355e3f854bfe5cd14c1ae71e71cb723e-b1bdecc6d4a9ac5023b66104c9f48863"
+account_id = "101-004-25172303-001"
+
+
 #For logging info messages to the console
 logging.basicConfig(level=logging.INFO)
 
 #Load environment variables
-load_dotenv()
-api_key = os.getenv("ACCESS_TOKEN")
-account_id = os.getenv("ACCOUNT_ID")
+#load_dotenv()
+#api_key = os.getenv("ACCESS_TOKEN")
+#account_id = os.getenv("ACCOUNT_ID")
 
 #Oanda API URLs and headers
 oanda_base_url = "https://api-fxpractice.oanda.com/v3/"
