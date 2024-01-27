@@ -55,7 +55,7 @@ def get_candles_to_pickle(instrument, type, headers):
             "count": "5000"
         }
 
-        candle_df_columns = ["Time", "Volume", "Bid_o", "Bid_h", "Bid_l", "Bid_c", "Ask_o", "Ask_h", "Ask_l", "Ask_c"]
+        candle_df_columns = ["time", "volume", "bid_o", "bid_h", "bid_l", "bid_c", "ask_o", "ask_h", "ask_l", "ask_c", "mid_o", "mid_h", "mid_l", "mid_c"]
         candle_data = []
         last_time = ""
 
@@ -71,17 +71,22 @@ def get_candles_to_pickle(instrument, type, headers):
             for candle in candles:
                 if candle["time"] != last_time:
                     temp_candle_dict = {
-                        "Time": candle["time"],
-                        "Volume": candle["volume"],
-                        "Bid_o": candle["bid"]["o"],
-                        "Bid_h": candle["bid"]["h"],
-                        "Bid_l": candle["bid"]["l"],
-                        "Bid_c": candle["bid"]["c"],
-                        "Ask_o": candle["ask"]["o"],
-                        "Ask_h": candle["ask"]["h"],
-                        "Ask_l": candle["ask"]["l"],
-                        "Ask_c": candle["ask"]["c"]
+                        "time": candle["time"],
+                        "volume": candle["volume"],
+                        "bid_o": candle["bid"]["o"],
+                        "bid_h": candle["bid"]["h"],
+                        "bid_l": candle["bid"]["l"],
+                        "bid_c": candle["bid"]["c"],
+                        "ask_o": candle["ask"]["o"],
+                        "ask_h": candle["ask"]["h"],
+                        "ask_l": candle["ask"]["l"],
+                        "ask_c": candle["ask"]["c"],
+                        "mid_o": candle["mid"]["o"],
+                        "mid_h": candle["mid"]["h"],
+                        "mid_l": candle["mid"]["l"],
+                        "mid_c": candle["mid"]["c"]
                     }
+
 
                     candle_data.append(temp_candle_dict)
 
@@ -94,7 +99,7 @@ def get_candles_to_pickle(instrument, type, headers):
         logging.info(f"Finished collecting data for {instrument} {granularity}")
 
         candle_df = pd.DataFrame(candle_data, columns=candle_df_columns)
-        candle_df.set_index('Time', inplace=True)
+        candle_df.set_index('time', inplace=True)
 
         file_path = f"data/{instrument}_{granularity}_{type}.csv"
         candle_df.to_csv(file_path)
