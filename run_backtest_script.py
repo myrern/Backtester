@@ -8,7 +8,7 @@ file_path = "tradeable_assets.json"
 with open(file_path, 'r') as f:
     tradeable_assets = json.load(f)
 
-test_asset = tradeable_assets[0]
 
-backtester = backtester.Backtester(test_asset)
+
+backtester = backtester.Backtester({"name": "EUR_USD", "type": "CURRENCY"})
 backtester.run_backtest()
