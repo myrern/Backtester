@@ -1,14 +1,11 @@
 import Backtester as backtester
 import json
 
-# Define the file path
+# Define the file path and read the JSON file
 file_path = "tradeable_assets.json"
-
-# Read the JSON file
 with open(file_path, 'r') as f:
     tradeable_assets = json.load(f)
 
-
-
-backtester = backtester.Backtester({"name": "EUR_USD", "type": "CURRENCY"})
-backtester.run_backtest()
+# Create a Backtester instance and run the backtest
+backtester_instance = backtester.Backtester({"name": "EUR_USD", "type": "CURRENCY"})
+backtester_instance.run_backtest()  

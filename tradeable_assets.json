@@ -1,1 +1,494 @@
-[{"name": "XAG_USD", "type": "METAL"}, {"name": "USB30Y_USD", "type": "CFD"}, {"name": "USB05Y_USD", "type": "CFD"}, {"name": "NZD_JPY", "type": "CURRENCY"}, {"name": "EUR_CZK", "type": "CURRENCY"}, {"name": "XAU_AUD", "type": "METAL"}, {"name": "WHEAT_USD", "type": "CFD"}, {"name": "CAD_SGD", "type": "CURRENCY"}, {"name": "AUD_NZD", "type": "CURRENCY"}, {"name": "EUR_GBP", "type": "CURRENCY"}, {"name": "FR40_EUR", "type": "CFD"}, {"name": "CHF_HKD", "type": "CURRENCY"}, {"name": "US30_USD", "type": "CFD"}, {"name": "EUR_NOK", "type": "CURRENCY"}, {"name": "XAU_USD", "type": "METAL"}, {"name": "JP225Y_JPY", "type": "CFD"}, {"name": "UK100_GBP", "type": "CFD"}, {"name": "EUR_HUF", "type": "CURRENCY"}, {"name": "GBP_NZD", "type": "CURRENCY"}, {"name": "SUGAR_USD", "type": "CFD"}, {"name": "EUR_PLN", "type": "CURRENCY"}, {"name": "DE10YB_EUR", "type": "CFD"}, {"name": "GBP_PLN", "type": "CURRENCY"}, {"name": "CH20_CHF", "type": "CFD"}, {"name": "CAD_HKD", "type": "CURRENCY"}, {"name": "XAG_CHF", "type": "METAL"}, {"name": "USD_CHF", "type": "CURRENCY"}, {"name": "XAG_HKD", "type": "METAL"}, {"name": "AUD_HKD", "type": "CURRENCY"}, {"name": "ESPIX_EUR", "type": "CFD"}, {"name": "NZD_CHF", "type": "CURRENCY"}, {"name": "AUD_CHF", "type": "CURRENCY"}, {"name": "GBP_CHF", "type": "CURRENCY"}, {"name": "USD_THB", "type": "CURRENCY"}, {"name": "XAU_JPY", "type": "METAL"}, {"name": "XAU_HKD", "type": "METAL"}, {"name": "GBP_CAD", "type": "CURRENCY"}, {"name": "EUR_HKD", "type": "CURRENCY"}, {"name": "CHF_JPY", "type": "CURRENCY"}, {"name": "GBP_HKD", "type": "CURRENCY"}, {"name": "EUR_NZD", "type": "CURRENCY"}, {"name": "XAG_AUD", "type": "METAL"}, {"name": "WTICO_USD", "type": "CFD"}, {"name": "XAG_NZD", "type": "METAL"}, {"name": "AUD_SGD", "type": "CURRENCY"}, {"name": "EUR_JPY", "type": "CURRENCY"}, {"name": "EUR_TRY", "type": "CURRENCY"}, {"name": "USD_JPY", "type": "CURRENCY"}, {"name": "SGD_JPY", "type": "CURRENCY"}, {"name": "GBP_ZAR", "type": "CURRENCY"}, {"name": "XAG_JPY", "type": "METAL"}, {"name": "ZAR_JPY", "type": "CURRENCY"}, {"name": "CN50_USD", "type": "CFD"}, {"name": "AUD_JPY", "type": "CURRENCY"}, {"name": "NZD_USD", "type": "CURRENCY"}, {"name": "EUR_SEK", "type": "CURRENCY"}, {"name": "USD_SGD", "type": "CURRENCY"}, {"name": "US2000_USD", "type": "CFD"}, {"name": "HKD_JPY", "type": "CURRENCY"}, {"name": "USD_CAD", "type": "CURRENCY"}, {"name": "AUD_USD", "type": "CURRENCY"}, {"name": "USB10Y_USD", "type": "CFD"}, {"name": "XAG_GBP", "type": "METAL"}, {"name": "HK33_HKD", "type": "CFD"}, {"name": "NZD_SGD", "type": "CURRENCY"}, {"name": "SPX500_USD", "type": "CFD"}, {"name": "GBP_JPY", "type": "CURRENCY"}, {"name": "USD_TRY", "type": "CURRENCY"}, {"name": "USD_NOK", "type": "CURRENCY"}, {"name": "USB02Y_USD", "type": "CFD"}, {"name": "XCU_USD", "type": "CFD"}, {"name": "XAG_EUR", "type": "METAL"}, {"name": "SGD_CHF", "type": "CURRENCY"}, {"name": "USD_CNH", "type": "CURRENCY"}, {"name": "XAU_SGD", "type": "METAL"}, {"name": "CORN_USD", "type": "CFD"}, {"name": "EUR_CHF", "type": "CURRENCY"}, {"name": "EUR_SGD", "type": "CURRENCY"}, {"name": "NZD_CAD", "type": "CURRENCY"}, {"name": "CHINAH_HKD", "type": "CFD"}, {"name": "GBP_AUD", "type": "CURRENCY"}, {"name": "USD_PLN", "type": "CURRENCY"}, {"name": "EUR_ZAR", "type": "CURRENCY"}, {"name": "NAS100_USD", "type": "CFD"}, {"name": "TRY_JPY", "type": "CURRENCY"}, {"name": "SOYBN_USD", "type": "CFD"}, {"name": "XAU_XAG", "type": "METAL"}, {"name": "AU200_AUD", "type": "CFD"}, {"name": "XAU_CAD", "type": "METAL"}, {"name": "EU50_EUR", "type": "CFD"}, {"name": "EUR_AUD", "type": "CURRENCY"}, {"name": "NL25_EUR", "type": "CFD"}, {"name": "USD_ZAR", "type": "CURRENCY"}, {"name": "CAD_JPY", "type": "CURRENCY"}, {"name": "NZD_HKD", "type": "CURRENCY"}, {"name": "XAU_NZD", "type": "METAL"}, {"name": "USD_CZK", "type": "CURRENCY"}, {"name": "USD_DKK", "type": "CURRENCY"}, {"name": "XAU_GBP", "type": "METAL"}, {"name": "USD_SEK", "type": "CURRENCY"}, {"name": "GBP_SGD", "type": "CURRENCY"}, {"name": "EUR_DKK", "type": "CURRENCY"}, {"name": "BCO_USD", "type": "CFD"}, {"name": "CHF_ZAR", "type": "CURRENCY"}, {"name": "CAD_CHF", "type": "CURRENCY"}, {"name": "XAG_SGD", "type": "METAL"}, {"name": "XAU_CHF", "type": "METAL"}, {"name": "GBP_USD", "type": "CURRENCY"}, {"name": "USD_MXN", "type": "CURRENCY"}, {"name": "USD_HUF", "type": "CURRENCY"}, {"name": "JP225_USD", "type": "CFD"}, {"name": "USD_HKD", "type": "CURRENCY"}, {"name": "EUR_USD", "type": "CURRENCY"}, {"name": "SG30_SGD", "type": "CFD"}, {"name": "EUR_CAD", "type": "CURRENCY"}, {"name": "XAG_CAD", "type": "METAL"}, {"name": "XPT_USD", "type": "CFD"}, {"name": "XAU_EUR", "type": "METAL"}, {"name": "DE30_EUR", "type": "CFD"}, {"name": "UK10YB_GBP", "type": "CFD"}, {"name": "XPD_USD", "type": "CFD"}, {"name": "NATGAS_USD", "type": "CFD"}, {"name": "AUD_CAD", "type": "CURRENCY"}]
+[
+    {
+        "name": "XAG_USD",
+        "type": "METAL"
+    },
+    {
+        "name": "USB30Y_USD",
+        "type": "CFD"
+    },
+    {
+        "name": "USB05Y_USD",
+        "type": "CFD"
+    },
+    {
+        "name": "NZD_JPY",
+        "type": "CURRENCY"
+    },
+    {
+        "name": "EUR_CZK",
+        "type": "CURRENCY"
+    },
+    {
+        "name": "XAU_AUD",
+        "type": "METAL"
+    },
+    {
+        "name": "WHEAT_USD",
+        "type": "CFD"
+    },
+    {
+        "name": "CAD_SGD",
+        "type": "CURRENCY"
+    },
+    {
+        "name": "AUD_NZD",
+        "type": "CURRENCY"
+    },
+    {
+        "name": "EUR_GBP",
+        "type": "CURRENCY"
+    },
+    {
+        "name": "FR40_EUR",
+        "type": "CFD"
+    },
+    {
+        "name": "CHF_HKD",
+        "type": "CURRENCY"
+    },
+    {
+        "name": "US30_USD",
+        "type": "CFD"
+    },
+    {
+        "name": "EUR_NOK",
+        "type": "CURRENCY"
+    },
+    {
+        "name": "XAU_USD",
+        "type": "METAL"
+    },
+    {
+        "name": "JP225Y_JPY",
+        "type": "CFD"
+    },
+    {
+        "name": "UK100_GBP",
+        "type": "CFD"
+    },
+    {
+        "name": "EUR_HUF",
+        "type": "CURRENCY"
+    },
+    {
+        "name": "GBP_NZD",
+        "type": "CURRENCY"
+    },
+    {
+        "name": "SUGAR_USD",
+        "type": "CFD"
+    },
+    {
+        "name": "EUR_PLN",
+        "type": "CURRENCY"
+    },
+    {
+        "name": "DE10YB_EUR",
+        "type": "CFD"
+    },
+    {
+        "name": "GBP_PLN",
+        "type": "CURRENCY"
+    },
+    {
+        "name": "CH20_CHF",
+        "type": "CFD"
+    },
+    {
+        "name": "CAD_HKD",
+        "type": "CURRENCY"
+    },
+    {
+        "name": "XAG_CHF",
+        "type": "METAL"
+    },
+    {
+        "name": "USD_CHF",
+        "type": "CURRENCY"
+    },
+    {
+        "name": "XAG_HKD",
+        "type": "METAL"
+    },
+    {
+        "name": "AUD_HKD",
+        "type": "CURRENCY"
+    },
+    {
+        "name": "ESPIX_EUR",
+        "type": "CFD"
+    },
+    {
+        "name": "NZD_CHF",
+        "type": "CURRENCY"
+    },
+    {
+        "name": "AUD_CHF",
+        "type": "CURRENCY"
+    },
+    {
+        "name": "GBP_CHF",
+        "type": "CURRENCY"
+    },
+    {
+        "name": "USD_THB",
+        "type": "CURRENCY"
+    },
+    {
+        "name": "XAU_JPY",
+        "type": "METAL"
+    },
+    {
+        "name": "XAU_HKD",
+        "type": "METAL"
+    },
+    {
+        "name": "GBP_CAD",
+        "type": "CURRENCY"
+    },
+    {
+        "name": "EUR_HKD",
+        "type": "CURRENCY"
+    },
+    {
+        "name": "CHF_JPY",
+        "type": "CURRENCY"
+    },
+    {
+        "name": "GBP_HKD",
+        "type": "CURRENCY"
+    },
+    {
+        "name": "EUR_NZD",
+        "type": "CURRENCY"
+    },
+    {
+        "name": "XAG_AUD",
+        "type": "METAL"
+    },
+    {
+        "name": "WTICO_USD",
+        "type": "CFD"
+    },
+    {
+        "name": "XAG_NZD",
+        "type": "METAL"
+    },
+    {
+        "name": "AUD_SGD",
+        "type": "CURRENCY"
+    },
+    {
+        "name": "EUR_JPY",
+        "type": "CURRENCY"
+    },
+    {
+        "name": "EUR_TRY",
+        "type": "CURRENCY"
+    },
+    {
+        "name": "USD_JPY",
+        "type": "CURRENCY"
+    },
+    {
+        "name": "SGD_JPY",
+        "type": "CURRENCY"
+    },
+    {
+        "name": "GBP_ZAR",
+        "type": "CURRENCY"
+    },
+    {
+        "name": "XAG_JPY",
+        "type": "METAL"
+    },
+    {
+        "name": "ZAR_JPY",
+        "type": "CURRENCY"
+    },
+    {
+        "name": "CN50_USD",
+        "type": "CFD"
+    },
+    {
+        "name": "AUD_JPY",
+        "type": "CURRENCY"
+    },
+    {
+        "name": "NZD_USD",
+        "type": "CURRENCY"
+    },
+    {
+        "name": "EUR_SEK",
+        "type": "CURRENCY"
+    },
+    {
+        "name": "USD_SGD",
+        "type": "CURRENCY"
+    },
+    {
+        "name": "US2000_USD",
+        "type": "CFD"
+    },
+    {
+        "name": "HKD_JPY",
+        "type": "CURRENCY"
+    },
+    {
+        "name": "USD_CAD",
+        "type": "CURRENCY"
+    },
+    {
+        "name": "AUD_USD",
+        "type": "CURRENCY"
+    },
+    {
+        "name": "USB10Y_USD",
+        "type": "CFD"
+    },
+    {
+        "name": "XAG_GBP",
+        "type": "METAL"
+    },
+    {
+        "name": "HK33_HKD",
+        "type": "CFD"
+    },
+    {
+        "name": "NZD_SGD",
+        "type": "CURRENCY"
+    },
+    {
+        "name": "SPX500_USD",
+        "type": "CFD"
+    },
+    {
+        "name": "GBP_JPY",
+        "type": "CURRENCY"
+    },
+    {
+        "name": "USD_TRY",
+        "type": "CURRENCY"
+    },
+    {
+        "name": "USD_NOK",
+        "type": "CURRENCY"
+    },
+    {
+        "name": "USB02Y_USD",
+        "type": "CFD"
+    },
+    {
+        "name": "XCU_USD",
+        "type": "CFD"
+    },
+    {
+        "name": "XAG_EUR",
+        "type": "METAL"
+    },
+    {
+        "name": "SGD_CHF",
+        "type": "CURRENCY"
+    },
+    {
+        "name": "USD_CNH",
+        "type": "CURRENCY"
+    },
+    {
+        "name": "XAU_SGD",
+        "type": "METAL"
+    },
+    {
+        "name": "CORN_USD",
+        "type": "CFD"
+    },
+    {
+        "name": "EUR_CHF",
+        "type": "CURRENCY"
+    },
+    {
+        "name": "EUR_SGD",
+        "type": "CURRENCY"
+    },
+    {
+        "name": "NZD_CAD",
+        "type": "CURRENCY"
+    },
+    {
+        "name": "CHINAH_HKD",
+        "type": "CFD"
+    },
+    {
+        "name": "GBP_AUD",
+        "type": "CURRENCY"
+    },
+    {
+        "name": "USD_PLN",
+        "type": "CURRENCY"
+    },
+    {
+        "name": "EUR_ZAR",
+        "type": "CURRENCY"
+    },
+    {
+        "name": "NAS100_USD",
+        "type": "CFD"
+    },
+    {
+        "name": "TRY_JPY",
+        "type": "CURRENCY"
+    },
+    {
+        "name": "SOYBN_USD",
+        "type": "CFD"
+    },
+    {
+        "name": "XAU_XAG",
+        "type": "METAL"
+    },
+    {
+        "name": "AU200_AUD",
+        "type": "CFD"
+    },
+    {
+        "name": "XAU_CAD",
+        "type": "METAL"
+    },
+    {
+        "name": "EU50_EUR",
+        "type": "CFD"
+    },
+    {
+        "name": "EUR_AUD",
+        "type": "CURRENCY"
+    },
+    {
+        "name": "NL25_EUR",
+        "type": "CFD"
+    },
+    {
+        "name": "USD_ZAR",
+        "type": "CURRENCY"
+    },
+    {
+        "name": "CAD_JPY",
+        "type": "CURRENCY"
+    },
+    {
+        "name": "NZD_HKD",
+        "type": "CURRENCY"
+    },
+    {
+        "name": "XAU_NZD",
+        "type": "METAL"
+    },
+    {
+        "name": "USD_CZK",
+        "type": "CURRENCY"
+    },
+    {
+        "name": "USD_DKK",
+        "type": "CURRENCY"
+    },
+    {
+        "name": "XAU_GBP",
+        "type": "METAL"
+    },
+    {
+        "name": "USD_SEK",
+        "type": "CURRENCY"
+    },
+    {
+        "name": "GBP_SGD",
+        "type": "CURRENCY"
+    },
+    {
+        "name": "EUR_DKK",
+        "type": "CURRENCY"
+    },
+    {
+        "name": "BCO_USD",
+        "type": "CFD"
+    },
+    {
+        "name": "CHF_ZAR",
+        "type": "CURRENCY"
+    },
+    {
+        "name": "CAD_CHF",
+        "type": "CURRENCY"
+    },
+    {
+        "name": "XAG_SGD",
+        "type": "METAL"
+    },
+    {
+        "name": "XAU_CHF",
+        "type": "METAL"
+    },
+    {
+        "name": "GBP_USD",
+        "type": "CURRENCY"
+    },
+    {
+        "name": "USD_MXN",
+        "type": "CURRENCY"
+    },
+    {
+        "name": "USD_HUF",
+        "type": "CURRENCY"
+    },
+    {
+        "name": "JP225_USD",
+        "type": "CFD"
+    },
+    {
+        "name": "USD_HKD",
+        "type": "CURRENCY"
+    },
+    {
+        "name": "EUR_USD",
+        "type": "CURRENCY"
+    },
+    {
+        "name": "SG30_SGD",
+        "type": "CFD"
+    },
+    {
+        "name": "EUR_CAD",
+        "type": "CURRENCY"
+    },
+    {
+        "name": "XAG_CAD",
+        "type": "METAL"
+    },
+    {
+        "name": "XPT_USD",
+        "type": "CFD"
+    },
+    {
+        "name": "XAU_EUR",
+        "type": "METAL"
+    },
+    {
+        "name": "DE30_EUR",
+        "type": "CFD"
+    },
+    {
+        "name": "UK10YB_GBP",
+        "type": "CFD"
+    },
+    {
+        "name": "XPD_USD",
+        "type": "CFD"
+    },
+    {
+        "name": "NATGAS_USD",
+        "type": "CFD"
+    },
+    {
+        "name": "AUD_CAD",
+        "type": "CURRENCY"
+    }
+]
