@@ -37,10 +37,10 @@ def get_all_available_instruments(headers):
     
     logging.info(f"Found {len(instrument_list)} instruments")
 
-     # Save the instrument_list to a JSON file
+    # Save the instrument_list to a JSON file
     file_path = "tradeable_assets.json"
     with open(file_path, 'w') as f:
-        json.dump(instrument_list, f)
+        json.dump(instrument_list, f, indent=4)
     
     return instrument_list
 
