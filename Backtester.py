@@ -69,8 +69,6 @@ class Backtester:
     def plot_returns(self):
         # Determine the range of the data
         date_range = self.data.index.max() - self.data.index.min()
-
-        # Plotting
         fig, ax = plt.subplots(figsize=(12, 8))
         
         # Plot the 'Strategy_Returns'
@@ -83,16 +81,13 @@ class Backtester:
                         where=(self.data["Strategy_Returns"] < 0), facecolor='red', alpha=0.3, interpolate=True)
 
         # Set x-axis major locator and formatter dynamically
-        if date_range.days > 365 * 5:
-            # Data spans over multiple years, show ticks per year
+        if date_range.days > 365 * 5: # Data spans over multiple years, show ticks per year
             ax.xaxis.set_major_locator(mdates.YearLocator())
             ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y'))
-        elif date_range.days > 365:
-            # Data spans over a year, show ticks per month
+        elif date_range.days > 365: # Data spans over a year, show ticks per month
             ax.xaxis.set_major_locator(mdates.MonthLocator())
             ax.xaxis.set_major_formatter(mdates.DateFormatter('%b %Y'))
-        else:
-            # Data is less than a year, show ticks per week
+        else: # Data is less than a year, show ticks per week
             ax.xaxis.set_major_locator(mdates.WeekdayLocator())
             ax.xaxis.set_major_formatter(mdates.DateFormatter('%d %b'))
 
@@ -120,9 +115,7 @@ class Backtester:
         total_return_percent = self.data["Hold_Returns"].iloc[-1]
         annual_return_percent = (1 + total_return_percent / 100) ** (365 / duration) - 1
             
-        # Calculate other metrics like volatility, Sharpe ratio, etc.
-        # These calculations would depend on the details of your strategy and the data available.
-        # ...
+        # Calculate other metrics like volatility, Sharpe ratio, etc...
 
         # Compile the summary data into a dictionary
         summary_data = {
