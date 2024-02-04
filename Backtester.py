@@ -1,6 +1,9 @@
 from tkinter import scrolledtext
 import pandas as pd
 import numpy as np
+from plotly import graph_objs as go
+import pandas as pd
+import plotly
 from TechnicalIndicators import *
 import matplotlib.pyplot as plt
 import matplotlib.ticker as mticker # For custom x-axis labels
@@ -38,23 +41,24 @@ class Backtester:
 
     def apply_strategies(self):
         self.technical_indicators = TechnicalIndicators(self.data)
-        rsi_buy = 30
-        rsi_sell = 70
+        #rsi_buy = 30
+        #rsi_sell = 70
         # Apply strategies here
-        self.data["RSI"] = self.technical_indicators.RSI(period=14, column="bid_c")
+        #self.data["RSI"] = self.technical_indicators.RSI(period=14, column="bid_c")
+        self.data["sma_s"] = self.technical_indicators.SMA(period=15, column="mid_c")
+        self.data["sma_l"] = self.technical_indicators.SMA(period=50, column="mid_c")
         self.data["Returns"] = np.log(self.data["mid_c"]/self.data["mid_c"].shift(1))
         self.data["Position"] = 0
-        self.data["Position"] = np.where(self.data['RSI'] < rsi_buy, 1, 
-                                    np.where(self.data['RSI'] > rsi_sell, -1, 0))
+        #self.data["Position"] = np.where(self.data['RSI'] < rsi_buy, 1, 
+         #                           np.where(self.data['RSI'] > rsi_sell, -1, 0))
+        self.data["Position"] = np.where(self.data['sma_s'] > self.data['sma_l'], 1, -1)
         self.data["Strategy"] = self.data["Position"].shift(1) * self.data["Returns"]
         
         self.data.dropna(inplace=True)
         print(self.data.head())
 
         self.calculate_returns()
-        self.plot_returns()
-        self.calculate_summary()
-        self.display_summary_popup()
+
 
     def calculate_returns(self):
         # Calculate cumulative returns
@@ -65,91 +69,55 @@ class Backtester:
         self.data["Hold_Returns"] = (self.data["Cumulative_Hold"] / self.data["Cumulative_Hold"].iloc[0] - 1) * 100
         self.data["Strategy_Returns"] = (self.data["Cumulative_Strategy"] / self.data["Cumulative_Strategy"].iloc[0] - 1) * 100
 
+        # Initialize the Plotly figure for the candlestick chart
+        fig = go.Figure(data=[go.Candlestick(x=self.data.index,
+                        open=self.data['mid_o'],  # Make sure these columns exist or adjust accordingly
+                        high=self.data['mid_h'],
+                        low=self.data['mid_l'],
+                        close=self.data['mid_c'])])
 
-    def plot_returns(self):
-        # Determine the range of the data
-        date_range = self.data.index.max() - self.data.index.min()
-        fig, ax = plt.subplots(figsize=(12, 8))
+        # Initialize a variable to store the last position
+        last_position = None
+
+        # Loop through the DataFrame and plot arrows on position changes
+        for i, row in self.data.iterrows():
+            current_position = row['Position']  # Ensure this is the correct column for your strategy's positions
+            
+            # Check if the current position is different from the last position
+            if current_position != last_position:
+                # Plot an up arrow for a position change to 1
+                if current_position == 1:
+                    fig.add_trace(go.Scatter(x=[i], y=[row['mid_l']],  # Use 'i' for the x-axis value if your index is datetime
+                                            marker=dict(color='green', size=20),
+                                            mode='markers', marker_symbol='arrow-up'))
+                # Plot a down arrow for a position change to -1
+                elif current_position == -1:
+                    fig.add_trace(go.Scatter(x=[i], y=[row['mid_h']],
+                                            marker=dict(color='red', size=20),
+                                            mode='markers', marker_symbol='arrow-down'))
+            # Update the last_position for the next iteration
+            last_position = current_position
         
-        # Plot the 'Strategy_Returns'
-        ax.plot(self.data.index, self.data["Strategy_Returns"], label='Strategy Returns')
+        # Add SMA Short as a line chart
+        fig.add_trace(go.Scatter(x=self.data.index, y=self.data['sma_s'],
+                         mode='lines', name='SMA Short', line=dict(color='blue', width=2)))
 
-        # Fill the area under the 'Strategy_Returns' curve
-        ax.fill_between(self.data.index, 0, self.data["Strategy_Returns"],
-                        where=(self.data["Strategy_Returns"] >= 0), facecolor='green', alpha=0.3, interpolate=True)
-        ax.fill_between(self.data.index, 0, self.data["Strategy_Returns"],
-                        where=(self.data["Strategy_Returns"] < 0), facecolor='red', alpha=0.3, interpolate=True)
+        # Add SMA Long line
+        fig.add_trace(go.Scatter(x=self.data.index, y=self.data['sma_l'],
+                                mode='lines', name='SMA Long', line=dict(color='magenta', width=2)))
 
-        # Set x-axis major locator and formatter dynamically
-        if date_range.days > 365 * 5: # Data spans over multiple years, show ticks per year
-            ax.xaxis.set_major_locator(mdates.YearLocator())
-            ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y'))
-        elif date_range.days > 365: # Data spans over a year, show ticks per month
-            ax.xaxis.set_major_locator(mdates.MonthLocator())
-            ax.xaxis.set_major_formatter(mdates.DateFormatter('%b %Y'))
-        else: # Data is less than a year, show ticks per week
-            ax.xaxis.set_major_locator(mdates.WeekdayLocator())
-            ax.xaxis.set_major_formatter(mdates.DateFormatter('%d %b'))
 
-        # Rotate date labels for better readability
-        plt.setp(ax.xaxis.get_majorticklabels(), rotation=45)
+        # Updating layout to make it more informative
+        fig.update_layout(title='Asset Price with Strategy Positions',
+                        xaxis_title='Date',
+                        yaxis_title='Price',
+                        xaxis_rangeslider_visible=False)  # Hides the range slider
 
-        # Set y-axis formatter
-        ax.yaxis.set_major_formatter(mticker.FuncFormatter(lambda y, _: '{:.0f}%'.format(y)))
-        plt.ylabel('Percentage Change (%)')
-        plt.title('Strategy Returns Over Time')
-        plt.legend()
-        plt.tight_layout()
-        plt.show()
+        fig.show()
 
-    def calculate_summary(self):
-        # Calculate various statistics
-        start_date = self.data.index.min()
-        end_date = self.data.index.max()
-        duration = (end_date - start_date).days
 
-        initial_equity = 100000  # Example initial equity
-        final_equity = initial_equity * (1 + self.data["Hold_Returns"].iloc[-1] / 100)
-        equity_peak = initial_equity * (1 + self.data["Hold_Returns"].cummax().iloc[-1] / 100)
+
+
             
-        total_return_percent = self.data["Hold_Returns"].iloc[-1]
-        annual_return_percent = (1 + total_return_percent / 100) ** (365 / duration) - 1
-            
-        # Calculate other metrics like volatility, Sharpe ratio, etc...
 
-        # Compile the summary data into a dictionary
-        summary_data = {
-            "Start":             start_date,
-            "End":               end_date,
-            "Duration":          f"{duration} days",
-            "Equity Final [$]":  final_equity,
-            "Equity Peak [$]":   equity_peak,
-            "Return [%]":        total_return_percent,
-            "Annual Return [%]": annual_return_percent,
-            # ... [add other calculated metrics here] ...
-            "_strategy": self.__class__.__name__
-            }
 
-        return summary_data
-
-    def display_summary_popup(self):
-        # Get the summary data
-        summary_data = self.calculate_summary()
-
-        # Create a new Tkinter window
-        window = tk.Tk()
-        window.title("Backtest Summary")
-
-        # Define the window size
-        window.geometry('600x400')  # Width x Height
-
-        # Create a scrolled text area widget
-        text_area = scrolledtext.ScrolledText(window, wrap=tk.WORD)
-        text_area.pack(expand=True, fill='both')
-
-        # Format and insert the summary data into the text area
-        formatted_summary = "\n".join(f"{key}: {value}" for key, value in summary_data.items())
-        text_area.insert(tk.INSERT, formatted_summary)
-
-        # Start the Tkinter event loop
-        window.mainloop()

@@ -47,7 +47,7 @@ def get_all_available_instruments(headers):
 
 def get_candles_to_pickle(instrument, type, headers):
     #granularities = ["S5", "S10", "S15", "S30", "M1", "M2", "M4", "M5", "M10", "M15", "M30", "H1", "H2", "H3", "H4", "H6", "H8", "H12", "D", "W", "M"]
-    granularities = ["H1", "M1"]
+    granularities = ["H1"]
     original_from_time = "2021-01-01T00:00:00Z"
     failed_gets = []
 
