@@ -1,14 +1,15 @@
 from tkinter import scrolledtext
 import pandas as pd
 import numpy as np
-from plotly import graph_objs as go
 import pandas as pd
-import plotly
 from TechnicalIndicators import *
+from Strategies import *
 import matplotlib.pyplot as plt
 import matplotlib.ticker as mticker # For custom x-axis labels
 import matplotlib.dates as mdates # For formatting dates on x-axis
 import tkinter as tk # For file dialog
+from plot.Plotter import Plotter
+
 plt.style.use("seaborn-v0_8")
 pd.set_option('display.float_format', lambda x: '%.5f' % x)
 
@@ -31,7 +32,7 @@ class Backtester:
         self.original_df['time'] = pd.to_datetime(self.original_df['time']) 
         self.original_df.set_index('time', inplace=True)
 
-        self.data = self.original_df.copy()
+        self.data = self.original_df.loc["2023-03-08T13:00:00.000000000Z": "2023-09-07T09:00:00.000000000Z"].copy()
         self.add_spread()
 
     def add_spread(self):
@@ -41,21 +42,10 @@ class Backtester:
 
     def apply_strategies(self):
         self.technical_indicators = TechnicalIndicators(self.data)
-        #rsi_buy = 30
-        #rsi_sell = 70
-        # Apply strategies here
-        #self.data["RSI"] = self.technical_indicators.RSI(period=14, column="bid_c")
-        self.data["sma_s"] = self.technical_indicators.SMA(period=15, column="mid_c")
-        self.data["sma_l"] = self.technical_indicators.SMA(period=50, column="mid_c")
-        self.data["Returns"] = np.log(self.data["mid_c"]/self.data["mid_c"].shift(1))
-        self.data["Position"] = 0
-        #self.data["Position"] = np.where(self.data['RSI'] < rsi_buy, 1, 
-         #                           np.where(self.data['RSI'] > rsi_sell, -1, 0))
-        self.data["Position"] = np.where(self.data['sma_s'] > self.data['sma_l'], 1, -1)
-        self.data["Strategy"] = self.data["Position"].shift(1) * self.data["Returns"]
-        
+        self.strategies = Strategies(self.data)
+
+        self.data, self.strategy_name = self.strategies.SMA_Crossover(50, 150)
         self.data.dropna(inplace=True)
-        print(self.data.head())
 
         self.calculate_returns()
 
@@ -69,55 +59,83 @@ class Backtester:
         self.data["Hold_Returns"] = (self.data["Cumulative_Hold"] / self.data["Cumulative_Hold"].iloc[0] - 1) * 100
         self.data["Strategy_Returns"] = (self.data["Cumulative_Strategy"] / self.data["Cumulative_Strategy"].iloc[0] - 1) * 100
 
-        # Initialize the Plotly figure for the candlestick chart
-        fig = go.Figure(data=[go.Candlestick(x=self.data.index,
-                        open=self.data['mid_o'],  # Make sure these columns exist or adjust accordingly
-                        high=self.data['mid_h'],
-                        low=self.data['mid_l'],
-                        close=self.data['mid_c'])])
+        self.print_strategy_returns()
+    
+    def print_strategy_returns(self):
+        self.calcualte_factors()
+    
+    def calcualte_factors(self):
+        # Calculate Sharpe Ratio
+        strategy_std = self.data["Strategy"].std()
+        strategy_annualized_std = strategy_std * np.sqrt(252)
+        strategy_sharpe = (self.data["Strategy"].mean() - 0.01) / strategy_annualized_std
 
-        # Initialize a variable to store the last position
-        last_position = None
+        # Calculate Maximum Drawdown
+        strategy_cummax = self.data["Cumulative_Strategy"].cummax()
+        strategy_drawdown = (self.data["Cumulative_Strategy"] - strategy_cummax) / strategy_cummax
+        strategy_max_drawdown = strategy_drawdown.min()
 
-        # Loop through the DataFrame and plot arrows on position changes
-        for i, row in self.data.iterrows():
-            current_position = row['Position']  # Ensure this is the correct column for your strategy's positions
-            
-            # Check if the current position is different from the last position
-            if current_position != last_position:
-                # Plot an up arrow for a position change to 1
-                if current_position == 1:
-                    fig.add_trace(go.Scatter(x=[i], y=[row['mid_l']],  # Use 'i' for the x-axis value if your index is datetime
-                                            marker=dict(color='green', size=20),
-                                            mode='markers', marker_symbol='arrow-up'))
-                # Plot a down arrow for a position change to -1
-                elif current_position == -1:
-                    fig.add_trace(go.Scatter(x=[i], y=[row['mid_h']],
-                                            marker=dict(color='red', size=20),
-                                            mode='markers', marker_symbol='arrow-down'))
-            # Update the last_position for the next iteration
-            last_position = current_position
-        
-        # Add SMA Short as a line chart
-        fig.add_trace(go.Scatter(x=self.data.index, y=self.data['sma_s'],
-                         mode='lines', name='SMA Short', line=dict(color='blue', width=2)))
+        #Calculate Win Rate
 
-        # Add SMA Long line
-        fig.add_trace(go.Scatter(x=self.data.index, y=self.data['sma_l'],
-                                mode='lines', name='SMA Long', line=dict(color='magenta', width=2)))
+        print(f"Sharpe Ratio: {strategy_sharpe:.2f}")
+        print(f"Maximum Drawdown: {strategy_max_drawdown:.2%}")
 
+        # Calculate the change in position to identify trades
+        self.data['Position_Change'] = self.data['Position'].diff()
 
-        # Updating layout to make it more informative
-        fig.update_layout(title='Asset Price with Strategy Positions',
-                        xaxis_title='Date',
-                        yaxis_title='Price',
-                        xaxis_rangeslider_visible=False)  # Hides the range slider
+        # Identify trade entry points
+        trade_entries = self.data['Position_Change'].abs() > 0
 
-        fig.show()
+        # Calculate the number of trades
+        num_trades = trade_entries.sum()
 
+        # Initialize variables to track the best and worst trade, and win/loss counts
+        best_trade = None
+        worst_trade = None
+        wins = 0
+        losses = 0
+        current_trade_return = 0
 
+        for i in range(len(self.data)):
+            if trade_entries.iloc[i]:
+                # At the start of a new trade, check if the previous trade was a win or loss
+                if current_trade_return > 0:
+                    wins += 1
+                elif current_trade_return < 0:
+                    losses += 1
+                # Reset current trade return at the start of a new trade
+                current_trade_return = 0
+            current_trade_return += self.data['Returns'].iloc[i]
+            # At the end of a trade or at the last available data point, evaluate the trade
+            if trade_entries.iloc[i] or i == len(self.data) - 1:
+                if best_trade is None or current_trade_return > best_trade:
+                    best_trade = current_trade_return
+                if worst_trade is None or current_trade_return < worst_trade:
+                    worst_trade = current_trade_return
+                # Evaluate the last trade in the dataset
+                if i == len(self.data) - 1:
+                    if current_trade_return > 0:
+                        wins += 1
+                    elif current_trade_return < 0:
+                        losses += 1
 
+        win_rate = wins / (wins + losses) if (wins + losses) > 0 else 0
 
-            
+        print(f"Number of Trades: {num_trades}")
+        print(f"Best Trade: {best_trade}")
+        print(f"Worst Trade: {worst_trade}")
+        print(f"Win Rate: {win_rate:.2%}")
 
+        summary = f"""
+        Sharpe Ratio: {strategy_sharpe:.2f} 
+        Maximum Drawdown: {strategy_max_drawdown:.2%} 
+        Number of Trades: {num_trades} 
+        Best Trade: {best_trade} 
+        Worst Trade: {worst_trade} 
+        Win Rate: {win_rate:.2%}
+        """
 
+        self.plot(summary)
+
+    def plot(self, summary):
+        Plotter.plot_candle(self.data, self.asset_name, self.strategy_name, summary)
