@@ -1,30 +1,32 @@
-import tkinter as tk  # For file dialog
-from tkinter import scrolledtext
-
-import matplotlib.dates as mdates  # For formatting dates on x-axis
 import matplotlib.pyplot as plt
-import matplotlib.ticker as mticker  # For custom x-axis labels
 import numpy as np
 import pandas as pd
-
 from plot.Plotter import Plotter
 from Strategies import *
 from TechnicalIndicators import *
+from iterativeBacktesting import IterativeBacktest as IB
 
 plt.style.use("seaborn-v0_8")
 pd.set_option("display.float_format", lambda x: "%.5f" % x)
 
 
 class Backtester:
-    def __init__(self, asset):
+    def __init__(self, asset, iterative = False, optimize_parameters = False, initial_balance = 100000):
         self.asset_name = asset["name"]
         self.asset_type = asset["type"]
+        self.iterative = iterative
+        self.optimize_parameters = optimize_parameters
+        self.initial_balance = initial_balance
 
     def run_backtest(self):
         self.loop_granularities()
+        self.add_spread()
+        self.apply_strategies()
+        self.calculate_returns()
+        return self.data
 
     def loop_granularities(self):
-        granularities = ["D"]
+        granularities = ["H1"]
         for granularity in granularities:
             self.get_data_by_granularity(granularity)
 
@@ -34,30 +36,37 @@ class Backtester:
         self.original_df["time"] = pd.to_datetime(self.original_df["time"])
         self.original_df.set_index("time", inplace=True)
 
-        self.data = self.original_df.copy()
-
-        self.add_spread()
+        #set data to 30% og the original data
+        self.data = self.original_df.copy().iloc[: int(len(self.original_df) * 0.3)]
 
     def add_spread(self):
         # Use the new 'Mid' column instead of calculating 'Mid_close'
         self.data["Spread"] = self.data["ask_c"].astype(float) - self.data[
             "bid_c"
         ].astype(float)
-        self.apply_strategies()
 
     def apply_strategies(self):
-        self.technical_indicators = TechnicalIndicators(self.data)
+        self.data["Returns"] = np.log(self.data["mid_c"] / self.data["mid_c"].shift(1))
         self.strategies = Strategies(self.data)
 
-        # self.data, self.strategy_name = self.strategies.SMA_Crossover(50, 150)
-        self.data["Returns"] = np.log(self.data["mid_c"] / self.data["mid_c"].shift(1))
-        self.data, self.strategy_name = self.strategies.optimize_SMA_Crossover()
-
+        if self.iterative:
+            self.iterative_backtest()
+        else:
+            self.vectorized_backtest()
+    
+    def vectorized_backtest(self):
+        if self.optimize_parameters:
+            self.data, self.strategy_name = self.strategies.optimize_SMA_Crossover()
+        else:
+            returns, self.data, self.strategy_name = self.strategies.SMA_Crossover(150, 50, self.data)
+        
+        self.data.dropna(inplace=True)
+    
+    def iterative_backtest(self):
+        iterative_backtest = IB.IterativeBactest(self.initial_balance, self.data)
+        self.data, self.strategy_name = iterative_backtest.test_sma_strategy(150, 50, self.data)
         self.data.dropna(inplace=True)
         self.calculate_returns()
-
-        # self.calculate_returns()
-        # self.plot()
 
     def calculate_returns(self):
         # Calculate cumulative returns
@@ -74,8 +83,6 @@ class Backtester:
             self.data["Cumulative_Strategy"] / self.data["Cumulative_Strategy"].iloc[0]
             - 1
         ) * 100
-
-        self.plot()
 
     def plot(self):
         Plotter.plot_candle(self.data, self.asset_name, self.strategy_name)

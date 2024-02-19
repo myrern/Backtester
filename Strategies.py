@@ -9,10 +9,10 @@ class Strategies:
         self.technical_indicators = TechnicalIndicators(self.data)
 
     def SMA_Crossover(self, short_window, long_window, test_data):
-        strategy_name = "SMA_Crossover_" + str(short_window) + "_" + str(long_window)
+        strategy_name = "SMA_Crossover_" + str(short_window) + "_" + str(long_window) + "_Vectorized"
 
-        test_data["sma_s"] = self.technical_indicators.SMA(period=50, column="mid_c")
-        test_data["sma_l"] = self.technical_indicators.SMA(period=150, column="mid_c")
+        test_data["sma_s"] = self.technical_indicators.SMA(period=short_window, column="mid_c")
+        test_data["sma_l"] = self.technical_indicators.SMA(period=long_window, column="mid_c")
 
         test_data["Position" + strategy_name] = 0
         test_data["Position" + strategy_name] = np.where(
@@ -40,8 +40,8 @@ class Strategies:
         test_data = self.data.copy()
         best_result = {"sma_s": 0, "sma_l": 0, "result": 0}
 
-        for i in range(start_sma_l, 400, 10):
-            for x in range(start_sma_s, 400, 10):
+        for i in range(start_sma_l, 300, 30):
+            for x in range(start_sma_s, 300, 30):
                 result, df, strategy_name = self.SMA_Crossover(i, x, test_data)
                 if result > best_result["result"]:
                     best_result["sma_s"] = x
