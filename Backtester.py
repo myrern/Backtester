@@ -26,7 +26,7 @@ class Backtester:
         return self.data
 
     def loop_granularities(self):
-        granularities = ["H1"]
+        granularities = ["D"]
         for granularity in granularities:
             self.get_data_by_granularity(granularity)
 
@@ -37,7 +37,8 @@ class Backtester:
         self.original_df.set_index("time", inplace=True)
 
         #set data to 30% og the original data
-        self.data = self.original_df.copy().iloc[: int(len(self.original_df) * 0.3)]
+        #self.data = self.original_df.copy().iloc[: int(len(self.original_df) * 0.3)]
+        self.data = self.original_df.copy()
 
     def add_spread(self):
         # Use the new 'Mid' column instead of calculating 'Mid_close'
@@ -56,17 +57,18 @@ class Backtester:
     
     def vectorized_backtest(self):
         if self.optimize_parameters:
-            self.data, self.strategy_name = self.strategies.optimize_SMA_Crossover()
+            self.data, self.strategy_name = self.strategies.IBS_Strategy(0.1, 0.9)
         else:
-            returns, self.data, self.strategy_name = self.strategies.SMA_Crossover(150, 50, self.data)
+           self.data, self.strategy_name = self.strategies.IBS_Strategy(0.1, 0.9)
         
         self.data.dropna(inplace=True)
     
     def iterative_backtest(self):
         iterative_backtest = IB.IterativeBactest(self.initial_balance, self.data)
-        self.data, self.strategy_name = iterative_backtest.test_sma_strategy(150, 50, self.data)
+        self.data, self.strategy_name = iterative_backtest.test_IBS_strategy(0.6, 0.8)
+        #self.data, self.strategy_name = iterative_backtest.test_IBS_strategy_enhanced(20, 12, 26, 14)
+        #self.data, self.strategy_name = iterative_backtest.test_sma_strategy(150, 50, self.data)
         self.data.dropna(inplace=True)
-        self.calculate_returns()
 
     def calculate_returns(self):
         # Calculate cumulative returns
@@ -83,6 +85,8 @@ class Backtester:
             self.data["Cumulative_Strategy"] / self.data["Cumulative_Strategy"].iloc[0]
             - 1
         ) * 100
+
+        self.plot()
 
     def plot(self):
         Plotter.plot_candle(self.data, self.asset_name, self.strategy_name)

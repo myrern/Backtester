@@ -22,6 +22,7 @@ class Strategies:
             test_data["Position" + strategy_name].shift(1) * test_data["Returns"]
         )
         test_data.dropna(inplace=True)
+        test_data["position"] = test_data["Position" + strategy_name]
 
         cum_returns = test_data["Strategy" + strategy_name].cumsum().apply(np.exp)
         # get last value of cum_returns
@@ -53,6 +54,20 @@ class Strategies:
         )
 
         return df, strategy_name
+    
+    def IBS_Strategy(self, ibs_low_threshold, ibs_high_threshold):
+        strategy_name = "IBS" + "_Vectorized"
+        # Calculate IBS
+        self.data['IBS'] = (self.data['mid_c'] - self.data['mid_l']) / (self.data['mid_h'] - self.data['mid_l'])
+        # Define Positions based on IBS thresholds
+        self.data['Position' + strategy_name] = 0
+        self.data['Position' + strategy_name] = np.where(self.data['IBS'] < ibs_low_threshold, 1,
+                                                          np.where(self.data['IBS'] > ibs_high_threshold, -0.9, 0))
+        # Calculate Strategy Returns
+        self.data['Strategy' + strategy_name] = self.data['Position' + strategy_name].shift(1) * self.data['Returns']
+        self.data.dropna(inplace=True)
+
+        return self.data, strategy_name
 
     # momentum strategy rate of change
     def ROC(self, period):

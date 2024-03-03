@@ -4,11 +4,25 @@
 ##
 from fastapi import FastAPI
 from fastapi.responses import JSONResponse
+from fastapi.middleware.cors import CORSMiddleware
 import Backtester as backtester
 import pandas as pd
 import json
 
 app = FastAPI()
+
+origins = [
+    "http://localhost:3000"
+]
+
+# Add CORSMiddleware to the application
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,  # Allows the origins listed in the origins list
+    allow_credentials=True,
+    allow_methods=["*"],  # Allows all methods
+    allow_headers=["*"],  # Allows all headers
+)
 
 @app.get("/run_smaCrossover")
 def backtestSmaCrossover(sma_s: int = 50, sma_l: int = 150, optimize: bool = False, iterative: bool = False, initial_balance: int = 100000):
