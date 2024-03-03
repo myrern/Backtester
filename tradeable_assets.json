@@ -1,95 +1,75 @@
 [
     {
-        "name": "XAG_USD",
+        "name": "XAU_GBP",
         "type": "METAL"
     },
     {
-        "name": "USB30Y_USD",
-        "type": "CFD"
-    },
-    {
-        "name": "USB05Y_USD",
-        "type": "CFD"
-    },
-    {
-        "name": "NZD_JPY",
+        "name": "USD_DKK",
         "type": "CURRENCY"
     },
     {
-        "name": "EUR_CZK",
-        "type": "CURRENCY"
-    },
-    {
-        "name": "XAU_AUD",
+        "name": "XAU_NZD",
         "type": "METAL"
     },
     {
-        "name": "WHEAT_USD",
+        "name": "CAD_JPY",
+        "type": "CURRENCY"
+    },
+    {
+        "name": "USD_ZAR",
+        "type": "CURRENCY"
+    },
+    {
+        "name": "NL25_EUR",
         "type": "CFD"
     },
     {
-        "name": "CAD_SGD",
+        "name": "EUR_AUD",
         "type": "CURRENCY"
     },
     {
-        "name": "AUD_NZD",
-        "type": "CURRENCY"
-    },
-    {
-        "name": "EUR_GBP",
-        "type": "CURRENCY"
-    },
-    {
-        "name": "FR40_EUR",
+        "name": "EU50_EUR",
         "type": "CFD"
     },
     {
-        "name": "CHF_HKD",
-        "type": "CURRENCY"
-    },
-    {
-        "name": "US30_USD",
-        "type": "CFD"
-    },
-    {
-        "name": "EUR_NOK",
-        "type": "CURRENCY"
-    },
-    {
-        "name": "XAU_USD",
+        "name": "XAU_CAD",
         "type": "METAL"
     },
     {
-        "name": "JP225Y_JPY",
+        "name": "AU200_AUD",
         "type": "CFD"
     },
     {
-        "name": "UK100_GBP",
+        "name": "XAU_XAG",
+        "type": "METAL"
+    },
+    {
+        "name": "SOYBN_USD",
         "type": "CFD"
     },
     {
-        "name": "EUR_HUF",
+        "name": "TRY_JPY",
         "type": "CURRENCY"
     },
     {
-        "name": "GBP_NZD",
-        "type": "CURRENCY"
-    },
-    {
-        "name": "SUGAR_USD",
+        "name": "NAS100_USD",
         "type": "CFD"
     },
     {
-        "name": "EUR_PLN",
+        "name": "EUR_ZAR",
         "type": "CURRENCY"
     },
     {
-        "name": "DE10YB_EUR",
+        "name": "USD_PLN",
+        "type": "CURRENCY"
+    },
+    {
+        "name": "GBP_AUD",
+        "type": "CURRENCY"
+    },
+    {
+        "name": "CHINAH_HKD",
         "type": "CFD"
-    },
-    {
-        "name": "GBP_PLN",
-        "type": "CURRENCY"
     },
     {
         "name": "CH20_CHF",
@@ -220,6 +200,202 @@
         "type": "CURRENCY"
     },
     {
+        "name": "USD_HKD",
+        "type": "CURRENCY"
+    },
+    {
+        "name": "XPT_USD",
+        "type": "CFD"
+    },
+    {
+        "name": "SG30_SGD",
+        "type": "CFD"
+    },
+    {
+        "name": "CHF_ZAR",
+        "type": "CURRENCY"
+    },
+    {
+        "name": "EUR_USD",
+        "type": "CURRENCY"
+    },
+    {
+        "name": "XAU_EUR",
+        "type": "METAL"
+    },
+    {
+        "name": "XPD_USD",
+        "type": "CFD"
+    },
+    {
+        "name": "GBP_SGD",
+        "type": "CURRENCY"
+    },
+    {
+        "name": "USD_SEK",
+        "type": "CURRENCY"
+    },
+    {
+        "name": "DE30_EUR",
+        "type": "CFD"
+    },
+    {
+        "name": "USD_HUF",
+        "type": "CURRENCY"
+    },
+    {
+        "name": "EUR_CAD",
+        "type": "CURRENCY"
+    },
+    {
+        "name": "EUR_DKK",
+        "type": "CURRENCY"
+    },
+    {
+        "name": "NATGAS_USD",
+        "type": "CFD"
+    },
+    {
+        "name": "XAG_CAD",
+        "type": "METAL"
+    },
+    {
+        "name": "JP225_USD",
+        "type": "CFD"
+    },
+    {
+        "name": "UK10YB_GBP",
+        "type": "CFD"
+    },
+    {
+        "name": "AUD_CAD",
+        "type": "CURRENCY"
+    },
+    {
+        "name": "USD_MXN",
+        "type": "CURRENCY"
+    },
+    {
+        "name": "GBP_USD",
+        "type": "CURRENCY"
+    },
+    {
+        "name": "XAU_CHF",
+        "type": "METAL"
+    },
+    {
+        "name": "XAG_SGD",
+        "type": "METAL"
+    },
+    {
+        "name": "CAD_CHF",
+        "type": "CURRENCY"
+    },
+    {
+        "name": "BCO_USD",
+        "type": "CFD"
+    },
+    {
+        "name": "AUD_NZD",
+        "type": "CURRENCY"
+    },
+    {
+        "name": "CAD_SGD",
+        "type": "CURRENCY"
+    },
+    {
+        "name": "FR40_EUR",
+        "type": "CFD"
+    },
+    {
+        "name": "USB30Y_USD",
+        "type": "CFD"
+    },
+    {
+        "name": "NZD_HKD",
+        "type": "CURRENCY"
+    },
+    {
+        "name": "USB05Y_USD",
+        "type": "CFD"
+    },
+    {
+        "name": "XAU_AUD",
+        "type": "METAL"
+    },
+    {
+        "name": "WHEAT_USD",
+        "type": "CFD"
+    },
+    {
+        "name": "EUR_HUF",
+        "type": "CURRENCY"
+    },
+    {
+        "name": "NZD_JPY",
+        "type": "CURRENCY"
+    },
+    {
+        "name": "EUR_CZK",
+        "type": "CURRENCY"
+    },
+    {
+        "name": "XAG_USD",
+        "type": "METAL"
+    },
+    {
+        "name": "CHF_HKD",
+        "type": "CURRENCY"
+    },
+    {
+        "name": "EUR_GBP",
+        "type": "CURRENCY"
+    },
+    {
+        "name": "USD_CZK",
+        "type": "CURRENCY"
+    },
+    {
+        "name": "US30_USD",
+        "type": "CFD"
+    },
+    {
+        "name": "EUR_NOK",
+        "type": "CURRENCY"
+    },
+    {
+        "name": "JP225Y_JPY",
+        "type": "CFD"
+    },
+    {
+        "name": "UK100_GBP",
+        "type": "CFD"
+    },
+    {
+        "name": "XAU_USD",
+        "type": "METAL"
+    },
+    {
+        "name": "GBP_NZD",
+        "type": "CURRENCY"
+    },
+    {
+        "name": "DE10YB_EUR",
+        "type": "CFD"
+    },
+    {
+        "name": "EUR_PLN",
+        "type": "CURRENCY"
+    },
+    {
+        "name": "SUGAR_USD",
+        "type": "CFD"
+    },
+    {
+        "name": "GBP_PLN",
+        "type": "CURRENCY"
+    },
+    {
         "name": "EUR_SEK",
         "type": "CURRENCY"
     },
@@ -313,182 +489,6 @@
     },
     {
         "name": "NZD_CAD",
-        "type": "CURRENCY"
-    },
-    {
-        "name": "CHINAH_HKD",
-        "type": "CFD"
-    },
-    {
-        "name": "GBP_AUD",
-        "type": "CURRENCY"
-    },
-    {
-        "name": "USD_PLN",
-        "type": "CURRENCY"
-    },
-    {
-        "name": "EUR_ZAR",
-        "type": "CURRENCY"
-    },
-    {
-        "name": "NAS100_USD",
-        "type": "CFD"
-    },
-    {
-        "name": "TRY_JPY",
-        "type": "CURRENCY"
-    },
-    {
-        "name": "SOYBN_USD",
-        "type": "CFD"
-    },
-    {
-        "name": "XAU_XAG",
-        "type": "METAL"
-    },
-    {
-        "name": "AU200_AUD",
-        "type": "CFD"
-    },
-    {
-        "name": "XAU_CAD",
-        "type": "METAL"
-    },
-    {
-        "name": "EU50_EUR",
-        "type": "CFD"
-    },
-    {
-        "name": "EUR_AUD",
-        "type": "CURRENCY"
-    },
-    {
-        "name": "NL25_EUR",
-        "type": "CFD"
-    },
-    {
-        "name": "USD_ZAR",
-        "type": "CURRENCY"
-    },
-    {
-        "name": "CAD_JPY",
-        "type": "CURRENCY"
-    },
-    {
-        "name": "NZD_HKD",
-        "type": "CURRENCY"
-    },
-    {
-        "name": "XAU_NZD",
-        "type": "METAL"
-    },
-    {
-        "name": "USD_CZK",
-        "type": "CURRENCY"
-    },
-    {
-        "name": "USD_DKK",
-        "type": "CURRENCY"
-    },
-    {
-        "name": "XAU_GBP",
-        "type": "METAL"
-    },
-    {
-        "name": "USD_SEK",
-        "type": "CURRENCY"
-    },
-    {
-        "name": "GBP_SGD",
-        "type": "CURRENCY"
-    },
-    {
-        "name": "EUR_DKK",
-        "type": "CURRENCY"
-    },
-    {
-        "name": "BCO_USD",
-        "type": "CFD"
-    },
-    {
-        "name": "CHF_ZAR",
-        "type": "CURRENCY"
-    },
-    {
-        "name": "CAD_CHF",
-        "type": "CURRENCY"
-    },
-    {
-        "name": "XAG_SGD",
-        "type": "METAL"
-    },
-    {
-        "name": "XAU_CHF",
-        "type": "METAL"
-    },
-    {
-        "name": "GBP_USD",
-        "type": "CURRENCY"
-    },
-    {
-        "name": "USD_MXN",
-        "type": "CURRENCY"
-    },
-    {
-        "name": "USD_HUF",
-        "type": "CURRENCY"
-    },
-    {
-        "name": "JP225_USD",
-        "type": "CFD"
-    },
-    {
-        "name": "USD_HKD",
-        "type": "CURRENCY"
-    },
-    {
-        "name": "EUR_USD",
-        "type": "CURRENCY"
-    },
-    {
-        "name": "SG30_SGD",
-        "type": "CFD"
-    },
-    {
-        "name": "EUR_CAD",
-        "type": "CURRENCY"
-    },
-    {
-        "name": "XAG_CAD",
-        "type": "METAL"
-    },
-    {
-        "name": "XPT_USD",
-        "type": "CFD"
-    },
-    {
-        "name": "XAU_EUR",
-        "type": "METAL"
-    },
-    {
-        "name": "DE30_EUR",
-        "type": "CFD"
-    },
-    {
-        "name": "UK10YB_GBP",
-        "type": "CFD"
-    },
-    {
-        "name": "XPD_USD",
-        "type": "CFD"
-    },
-    {
-        "name": "NATGAS_USD",
-        "type": "CFD"
-    },
-    {
-        "name": "AUD_CAD",
         "type": "CURRENCY"
     }
 ]

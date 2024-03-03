@@ -11,6 +11,8 @@ class IterativeBase():
         self.position = 0
         self.data = data
         self.process_data()
+        self.last_buy_units = 0
+        self.last_sell_units = 0
     
     def process_data(self):
         self.data["Returns"] = np.log(self.data["mid_c"] / self.data["mid_c"].shift(1))
@@ -28,9 +30,18 @@ class IterativeBase():
         if amount is not None:
             units = int(amount / open_price)
         self.current_balance -= units * open_price
+        self.last_buy_units = units
         self.units += units
         self.trades += 1
         print("{} |  Buying {} for {}".format(date, units, open_price))
+    
+    def close_position(self, candle):
+        date, open_price = self.get_current_candle(candle)
+        if self.last_buy_units != 0:
+            self.current_balance += self.last_buy_units * open_price
+            self.units -= self.last_buy_units
+            self.trades += 1
+            print("{} |  Closing position for {}".format(date, open_price))
     
     def sell_asset(self, candle, units = None, amount = None):
         date, open_price = self.get_current_candle(candle)
@@ -45,7 +56,7 @@ class IterativeBase():
         date, price = self.get_current_candle(bar)
         print("{} | Current Balance: {}".format(date, round(self.current_balance, 2)))
     
-    def close_position(self, candle):
+    def close_final_position(self, candle):
         date, close_price = self.get_current_candle(candle)
         print(75 * "-")
         print("{} | +++ CLOSING FINAL POSITION +++".format(date))

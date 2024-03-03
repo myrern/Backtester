@@ -41,11 +41,15 @@ class TechnicalIndicators:
         return K, D
 
     def ATR(self, period=14):
-        hl = self.df["High"] - self.df["Low"]
-        hc = np.abs(self.df["High"] - self.df["Close"].shift())
-        lc = np.abs(self.df["Low"] - self.df["Close"].shift())
+        hl = self.df["mid_h"] - self.df["mid_l"]
+        hc = np.abs(self.df["mid_h"] - self.df["mid_c"].shift())
+        lc = np.abs(self.df["mid_l"] - self.df["mid_c"].shift())
         tr = pd.concat([hl, hc, lc], axis=1).max(axis=1)
         return tr.rolling(window=period).mean()
+    
+    def IBS(self):
+        self.df['IBS'] = (self.df['mid_c'] - self.df['mid_l']) / (self.df['mid_h'] - self.df['mid_l'])
+        return self.df['IBS']
 
     def roc(self, period=30):
         return (self.df["Close"] / self.df["Close"].shift(period)) - 1

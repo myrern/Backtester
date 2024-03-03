@@ -173,28 +173,29 @@ class Plotter:
                 last_position = current_position
 
         # Add SMA lines on the candlestick chart
-        fig.add_trace(
-            go.Scatter(
-                x=data.index,
-                y=data["sma_s"],
-                mode="lines",
-                name="SMA Short",
-                line=dict(color="blue", width=2),
-            ),
-            row=1,
-            col=1,
-        )
-        fig.add_trace(
-            go.Scatter(
-                x=data.index,
-                y=data["sma_l"],
-                mode="lines",
-                name="SMA Long",
-                line=dict(color="magenta", width=2),
-            ),
-            row=1,
-            col=1,
-        )
+        if "sma_s" and "sma_l" in data.columns:
+            fig.add_trace(
+                go.Scatter(
+                    x=data.index,
+                    y=data["sma_s"],
+                    mode="lines",
+                    name="SMA Short",
+                    line=dict(color="blue", width=2),
+                ),
+                row=1,
+                col=1,
+            )
+            fig.add_trace(
+                go.Scatter(
+                    x=data.index,
+                    y=data["sma_l"],
+                    mode="lines",
+                    name="SMA Long",
+                    line=dict(color="magenta", width=2),
+                ),
+                row=1,
+                col=1,
+            )
 
         # Customize the layout for a dark theme
         fig.update_layout(

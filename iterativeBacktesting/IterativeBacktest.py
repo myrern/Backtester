@@ -1,5 +1,6 @@
 from iterativeBacktesting import IterativeBase as IB
 from TechnicalIndicators import TechnicalIndicators
+import numpy as np
 
 class IterativeBactest(IB.IterativeBase):
 
@@ -24,6 +25,100 @@ class IterativeBactest(IB.IterativeBase):
             if amount == "all":
                 amount = self.current_balance
             self.sell_asset(bar, amount = amount) # go short
+    
+    def go_neutral(self, bar):
+        if self.position == 1:
+            self.close_position(bar)
+
+    def test_IBS_strategy_enhanced(self, ibs_percentile, momentum_short, momentum_long, atr_period):
+        strategy_name = f"IBS_Enhanced_{ibs_percentile}_{momentum_short}_{momentum_long}"
+
+        technical_indicators = TechnicalIndicators(self.data)
+        self.data["IBS"] = technical_indicators.IBS()
+        self.data["EMA_Short"] = self.data["mid_c"].ewm(span=momentum_short, adjust=False).mean()
+        self.data["EMA_Long"] = self.data["mid_c"].ewm(span=momentum_long, adjust=False).mean()
+        self.data["ATR"] = technical_indicators.ATR(atr_period)
+
+        # IBS thresholds based on historical percentiles
+        self.data["IBS_Low_Threshold"] = self.data["IBS"].rolling(window=252, min_periods=1).quantile(ibs_percentile / 100.0)
+        self.data["IBS_High_Threshold"] = self.data["IBS"].rolling(window=252, min_periods=1).quantile(1 - ibs_percentile / 100.0)
+
+        self.position = 0
+        self.trades = 0
+        self.current_balance = self.initial_balance
+        self.data["Position" + strategy_name] = 0
+
+        for candle in range(2, len(self.data) - 1):
+            # Ensure that all necessary data is not NaN before checking conditions
+            if not np.isnan(self.data["IBS"].iloc[candle - 1]) and \
+            not np.isnan(self.data["IBS_Low_Threshold"].iloc[candle - 1]) and \
+            not np.isnan(self.data["EMA_Short"].iloc[candle - 1]) and \
+            not np.isnan(self.data["EMA_Long"].iloc[candle - 1]):
+                # Entry conditions
+                if self.data["IBS"].iloc[candle - 1] < self.data["IBS_Low_Threshold"].iloc[candle - 1] and \
+                self.data["EMA_Short"].iloc[candle - 1] > self.data["EMA_Long"].iloc[candle - 1]:
+                    if self.position in [0, -1]:
+                        self.go_long(candle, amount="all")
+                        self.position = 1
+
+                # Exit conditions
+                elif self.data["IBS"].iloc[candle - 1] > self.data["IBS_High_Threshold"].iloc[candle - 1] or \
+                    self.data["EMA_Short"].iloc[candle - 1] < self.data["EMA_Long"].iloc[candle - 1]:
+                    if self.position in [1, -1]:
+                        self.go_neutral(candle)
+                        self.position = 0
+
+                self.data.loc[self.data.index[candle - 1], "Position" + strategy_name] = self.position
+
+        self.close_final_position(candle + 1)
+
+        self.data["Strategy" + strategy_name] = (self.data["Position" + strategy_name].shift(1) * self.data["Returns"]).fillna(0)
+
+        return self.data, strategy_name
+
+        
+    def test_IBS_strategy(self, ibs_low_threshold, ibs_high_threshold):
+        strategy_name = "IBS_" + str(ibs_low_threshold) + "_" + str(ibs_high_threshold) + "_Iterative"
+
+        technical_indicators = TechnicalIndicators(self.data)
+        self.data["IBS"] = technical_indicators.IBS()
+
+        # Printout for clarity
+        stm = "Testing IBS strategy | IBS_Low = {} & IBS_High = {}".format(ibs_low_threshold, ibs_high_threshold)
+        print("-" * 75)
+        print(stm)
+        print("-" * 75)
+
+        self.position = 0  # Initial neutral position
+        self.trades = 0  # No trades yet
+        self.current_balance = self.initial_balance  # Reset initial capital
+
+        self.data["Position" + strategy_name] = 0  # Start with no position
+        self.data.dropna(inplace=True)  # Drop NA values
+
+        # Initialize the position to neutral for all rows
+        self.data["Position" + strategy_name] = 0  
+
+        for candle in range(1, len(self.data) - 1):
+            if self.data["IBS"].iloc[candle - 1] < ibs_low_threshold:
+                if self.position in [0, -1]:
+                    self.go_long(candle, amount="all")  # Go long
+                    self.position = 1  # Update to long position
+            elif self.data["IBS"].iloc[candle - 1] > ibs_high_threshold:
+                if self.position in [1]:
+                    self.go_neutral(candle)
+                    self.position = 0  # Update to neutral position
+
+            # Update the position for each candle
+            self.data.loc[self.data.index[candle -1 ], "Position" + strategy_name] = self.position
+
+        self.close_final_position(candle + 1)  # Close position at the last bar
+
+        # Calculate strategy returns based on positions
+        self.data["Strategy" + strategy_name] = self.data["Position" + strategy_name].shift(1) * self.data["Returns"]
+
+        return self.data, strategy_name
+
     
     def test_sma_strategy(self, SMA_S, SMA_L, data):
         strategy_name = "SMA_Crossover_" + str(SMA_S) + "_" + str(SMA_L) + "_Iterative"
@@ -69,5 +164,9 @@ class IterativeBactest(IB.IterativeBase):
         self.data["Position" + strategy_name] = positions  # assign positions list to new column after the loop
         self.data["Strategy" + strategy_name] = self.data["Position" + strategy_name].shift(1) * self.data["Returns"]
         self.close_position(candle+1) # close position at the last bar
+        self.data["position"] = self.data["Position" + strategy_name]
 
         return self.data, strategy_name
+
+
+        
