@@ -1,5 +1,7 @@
 import pandas as pd
 import numpy as np
+import matplotlib.pyplot as plt
+import tabulate
 from scipy.stats import norm
 
 class IterativeBase():
@@ -70,6 +72,27 @@ class IterativeBase():
     def print_current_balance(self, bar):
         date, price = self.get_current_candle(bar)
         print("{} | Current Balance: {}".format(date, round(self.current_balance, 2)))
+
+
+    def calculate_max_drawdown(self):
+        # Calculate the max drawdown
+        self.data['peak'] = self.data['mid_c'].cummax()
+        self.data['drawdown'] = (self.data['mid_c'] - self.data['peak']) / self.data['peak']
+        max_dd = self.data['drawdown'].min()
+        print("Max Drawdown: {:.2%}".format(max_dd))
+
+
+        # Plot the drawdowns 
+        plt.figure(figsize=(10, 6))
+        plt.fill_between(self.data.index, self.data['drawdown'], color='red', alpha=0.3)
+        plt.title('Drawdown over time')
+        plt.show()
+
+        
+        return max_dd
+   
+   
+
     
     def close_final_position(self, candle):
         date, close_price = self.get_current_candle(candle)
@@ -84,37 +107,54 @@ class IterativeBase():
         #print("{} | number of trades executed = {}".format(date, self.trades))
         #print(75 * "-")
 
-
-
     def summary(self):
         if hasattr(self, 'trade_returns') and hasattr(self, 'trade_dates') and len(self.trade_returns) > 0:
             # Create a DataFrame with trade returns and dates
             df = pd.DataFrame({'Returns': self.trade_returns}, index=pd.to_datetime(self.trade_dates))
-            
+                
             # Ensure the index is a DatetimeIndex
             df.index = pd.to_datetime(df.index)
 
-            yearly_returns = df['Returns'].resample('YE').sum()
-            monthly_returns = df['Returns'].resample('ME').sum()
-
-            # Convert log returns to simple returns for yearly and monthly aggregates
-            avg_yearly_return = yearly_returns.mean()
-            avg_monthly_return = monthly_returns.mean()
+            starting_equity = self.initial_balance
+            total_return = np.exp(df['Returns'].sum()) - 1
+            monthly_return = df['Returns'].mean() * 21  # Assuming 21 trading days in a month
+            annualized_return = df['Returns'].mean() * 252  # Assuming 252 trading days in a year
+            standard_deviation = df['Returns'].std() * np.sqrt(252)  # Annualized Volatility
+            exposure_time = len(df) / len(self.data) * 100  # Percentage of time exposed to the market
+            equity_peak = self.current_balance.max()
+            hold_return = (self.data['mid_c'].iloc[-1] - self.data['mid_c'].iloc[0]) / self.data['mid_c'].iloc[0]
 
 
             # Calculate additional metrics like the Sharpe Ratio and Standard Deviation of returns
             risk_free_rate = 0.0425  
             excess_returns = df['Returns'] - risk_free_rate/252  # Assuming 252 trading days in a year
             sharpe_ratio = np.sqrt(252) * excess_returns.mean() / excess_returns.std()
-            std_dev = df['Returns'].std() * np.sqrt(252)  # Annualized Standard Deviation
+                
 
-            print(75 * "-")
-            # Print the summary statistics
-            print(f"Sharpe Ratio: {sharpe_ratio:.2f}")
-            print(f"Standard Deviation (Annualized): {std_dev:.2%}")
-            print("Total Return: {:.2%}".format(np.exp(df['Returns'].sum()) - 1))
-            print(f"Average Yearly Return: {avg_yearly_return:.2%}")
-            print(f"Average Monthly Return: {avg_monthly_return:.2%}")
-            print(75 * "-")
+            summary_metrics = {
+                    'Start': df.index.min(),
+                    'End': df.index.max(),
+                    'Duration [Days]': (df.index.max() - df.index.min()).days,
+                    'Exposure Time [%]': exposure_time,
+                    'Equity Start [$]': starting_equity,
+                    'Equity Final [$]': self.current_balance,
+                    'Equity Peak [$]': equity_peak,
+                    'Strategy Return [%]': total_return * 100,
+                    'Hold Return [%]': hold_return * 100,
+                    'Average Yearly Return [%]': annualized_return * 100,
+                    'Average Monthly Return [%]':  monthly_return * 100,
+                    'Standard deviation (Ann.) [%]': standard_deviation * 100,
+                    'Sharpe Ratio': sharpe_ratio
+                    
+                        
+                    }
+                
+            # round the values to 2 decimal places if they are floats
+            for key, value in summary_metrics.items():
+                if isinstance(value, float):
+                    summary_metrics[key] = round(value, 2)
+
+            print(tabulate.tabulate(summary_metrics.items(), tablefmt="plain", headers=["Metric", "Value"]))
+            
         else:
-            print("No trades executed.")
+            print("No trades executed")

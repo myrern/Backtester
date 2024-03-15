@@ -89,4 +89,5 @@ class Backtester:
         self.plot()
 
     def plot(self):
-        Plotter.plot_candle(self.data, self.asset_name, self.strategy_name)
+        #Plotter.plot_candle(self.data, self.asset_name, self.strategy_name)
+        pass

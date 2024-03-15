@@ -1,5 +1,6 @@
 from iterativeBacktesting import IterativeBase as IB
 from TechnicalIndicators import TechnicalIndicators
+
 import numpy as np
 
 class IterativeBactest(IB.IterativeBase):
@@ -112,8 +113,11 @@ class IterativeBactest(IB.IterativeBase):
             # Update the position for each candle
             self.data.loc[self.data.index[candle -1 ], "Position" + strategy_name] = self.position
 
-        self.close_final_position(candle + 1)  # Close position at the last bar
 
+        self.calculate_max_drawdown()
+        self.close_final_position(candle + 1)  # Close position at the last bar
+        
+    
         self.summary()
 
         # Calculate strategy returns based on positions

@@ -225,3 +225,5 @@ class Plotter:
 
         # Display the figure
         fig.show()
+
+    # plot returns 
