@@ -1,494 +1,1601 @@
 [
     {
         "name": "XAU_GBP",
-        "type": "METAL"
+        "type": "METAL",
+        "pipLocation": -2,
+        "PriceDesimals": 3,
+        "tradeSizeDesimals": 0,
+        "minimumTradeSize": "1",
+        "financing": {
+            "longRate": "-0.0635",
+            "shortRate": "0.041"
+        },
+        "marginRate": "0.05"
     },
     {
         "name": "USD_DKK",
-        "type": "CURRENCY"
+        "type": "CURRENCY",
+        "pipLocation": -4,
+        "PriceDesimals": 5,
+        "tradeSizeDesimals": 0,
+        "minimumTradeSize": "1",
+        "financing": {
+            "longRate": "0.0071",
+            "shortRate": "-0.0281"
+        },
+        "marginRate": "0.05"
     },
     {
         "name": "XAU_NZD",
-        "type": "METAL"
+        "type": "METAL",
+        "pipLocation": -2,
+        "PriceDesimals": 3,
+        "tradeSizeDesimals": 0,
+        "minimumTradeSize": "1",
+        "financing": {
+            "longRate": "-0.0658",
+            "shortRate": "0.0419"
+        },
+        "marginRate": "0.05"
     },
     {
         "name": "CAD_JPY",
-        "type": "CURRENCY"
+        "type": "CURRENCY",
+        "pipLocation": -2,
+        "PriceDesimals": 3,
+        "tradeSizeDesimals": 0,
+        "minimumTradeSize": "1",
+        "financing": {
+            "longRate": "0.0393",
+            "shortRate": "-0.0612"
+        },
+        "marginRate": "0.03333333333333"
     },
     {
         "name": "USD_ZAR",
-        "type": "CURRENCY"
+        "type": "CURRENCY",
+        "pipLocation": -4,
+        "PriceDesimals": 5,
+        "tradeSizeDesimals": 0,
+        "minimumTradeSize": "1",
+        "financing": {
+            "longRate": "-0.0488",
+            "shortRate": "0.0043"
+        },
+        "marginRate": "0.05"
     },
     {
         "name": "NL25_EUR",
-        "type": "CFD"
+        "type": "CFD",
+        "pipLocation": -2,
+        "PriceDesimals": 3,
+        "tradeSizeDesimals": 1,
+        "minimumTradeSize": "0.1",
+        "financing": {
+            "longRate": "-0.0641",
+            "shortRate": "0.0141"
+        },
+        "marginRate": "0.1"
     },
     {
         "name": "EUR_AUD",
-        "type": "CURRENCY"
+        "type": "CURRENCY",
+        "pipLocation": -4,
+        "PriceDesimals": 5,
+        "tradeSizeDesimals": 0,
+        "minimumTradeSize": "1",
+        "financing": {
+            "longRate": "-0.0162",
+            "shortRate": "-0.0056"
+        },
+        "marginRate": "0.05"
     },
     {
         "name": "EU50_EUR",
-        "type": "CFD"
+        "type": "CFD",
+        "pipLocation": 0,
+        "PriceDesimals": 1,
+        "tradeSizeDesimals": 1,
+        "minimumTradeSize": "0.1",
+        "financing": {
+            "longRate": "-0.0641",
+            "shortRate": "0.0141"
+        },
+        "marginRate": "0.05"
     },
     {
         "name": "XAU_CAD",
-        "type": "METAL"
+        "type": "METAL",
+        "pipLocation": -2,
+        "PriceDesimals": 3,
+        "tradeSizeDesimals": 0,
+        "minimumTradeSize": "1",
+        "financing": {
+            "longRate": "-0.0609",
+            "shortRate": "0.0369"
+        },
+        "marginRate": "0.05"
     },
     {
         "name": "AU200_AUD",
-        "type": "CFD"
+        "type": "CFD",
+        "pipLocation": 0,
+        "PriceDesimals": 1,
+        "tradeSizeDesimals": 1,
+        "minimumTradeSize": "0.1",
+        "financing": {
+            "longRate": "-0.0682",
+            "shortRate": "0.0182"
+        },
+        "marginRate": "0.05"
     },
     {
         "name": "XAU_XAG",
-        "type": "METAL"
+        "type": "METAL",
+        "pipLocation": -2,
+        "PriceDesimals": 3,
+        "tradeSizeDesimals": 0,
+        "minimumTradeSize": "1",
+        "financing": {
+            "longRate": "-0.0113",
+            "shortRate": "-0.014"
+        },
+        "marginRate": "0.1"
     },
     {
         "name": "SOYBN_USD",
-        "type": "CFD"
+        "type": "CFD",
+        "pipLocation": -2,
+        "PriceDesimals": 3,
+        "tradeSizeDesimals": 0,
+        "minimumTradeSize": "1",
+        "financing": {
+            "longRate": "-0.058",
+            "shortRate": "0.008"
+        },
+        "marginRate": "0.1"
     },
     {
         "name": "TRY_JPY",
-        "type": "CURRENCY"
+        "type": "CURRENCY",
+        "pipLocation": -2,
+        "PriceDesimals": 3,
+        "tradeSizeDesimals": 0,
+        "minimumTradeSize": "1",
+        "financing": {
+            "longRate": "0.1683",
+            "shortRate": "-0.8052"
+        },
+        "marginRate": "0.25"
     },
     {
         "name": "NAS100_USD",
-        "type": "CFD"
+        "type": "CFD",
+        "pipLocation": 0,
+        "PriceDesimals": 1,
+        "tradeSizeDesimals": 1,
+        "minimumTradeSize": "0.1",
+        "financing": {
+            "longRate": "-0.0783",
+            "shortRate": "0.0283"
+        },
+        "marginRate": "0.05"
     },
     {
         "name": "EUR_ZAR",
-        "type": "CURRENCY"
+        "type": "CURRENCY",
+        "pipLocation": -4,
+        "PriceDesimals": 5,
+        "tradeSizeDesimals": 0,
+        "minimumTradeSize": "1",
+        "financing": {
+            "longRate": "-0.0716",
+            "shortRate": "0.01"
+        },
+        "marginRate": "0.05"
     },
     {
         "name": "USD_PLN",
-        "type": "CURRENCY"
+        "type": "CURRENCY",
+        "pipLocation": -4,
+        "PriceDesimals": 5,
+        "tradeSizeDesimals": 0,
+        "minimumTradeSize": "1",
+        "financing": {
+            "longRate": "-0.0136",
+            "shortRate": "-0.0091"
+        },
+        "marginRate": "0.05"
     },
     {
         "name": "GBP_AUD",
-        "type": "CURRENCY"
+        "type": "CURRENCY",
+        "pipLocation": -4,
+        "PriceDesimals": 5,
+        "tradeSizeDesimals": 0,
+        "minimumTradeSize": "1",
+        "financing": {
+            "longRate": "-0.0035",
+            "shortRate": "-0.0175"
+        },
+        "marginRate": "0.05"
     },
     {
         "name": "CHINAH_HKD",
-        "type": "CFD"
+        "type": "CFD",
+        "pipLocation": 0,
+        "PriceDesimals": 1,
+        "tradeSizeDesimals": 1,
+        "minimumTradeSize": "0.1",
+        "financing": {
+            "longRate": "-0.0747",
+            "shortRate": "0.0247"
+        },
+        "marginRate": "0.1"
     },
     {
         "name": "CH20_CHF",
-        "type": "CFD"
+        "type": "CFD",
+        "pipLocation": 0,
+        "PriceDesimals": 1,
+        "tradeSizeDesimals": 1,
+        "minimumTradeSize": "0.1",
+        "financing": {
+            "longRate": "-0.0396",
+            "shortRate": "-0.0104"
+        },
+        "marginRate": "0.1"
     },
     {
         "name": "CAD_HKD",
-        "type": "CURRENCY"
+        "type": "CURRENCY",
+        "pipLocation": -4,
+        "PriceDesimals": 5,
+        "tradeSizeDesimals": 0,
+        "minimumTradeSize": "1",
+        "financing": {
+            "longRate": "-0.0591",
+            "shortRate": "-0.0755"
+        },
+        "marginRate": "0.1"
     },
     {
         "name": "XAG_CHF",
-        "type": "METAL"
+        "type": "METAL",
+        "pipLocation": -4,
+        "PriceDesimals": 5,
+        "tradeSizeDesimals": 0,
+        "minimumTradeSize": "1",
+        "financing": {
+            "longRate": "-0.0277",
+            "shortRate": "0.0034"
+        },
+        "marginRate": "0.1"
     },
     {
         "name": "USD_CHF",
-        "type": "CURRENCY"
+        "type": "CURRENCY",
+        "pipLocation": -4,
+        "PriceDesimals": 5,
+        "tradeSizeDesimals": 0,
+        "minimumTradeSize": "1",
+        "financing": {
+            "longRate": "0.0294",
+            "shortRate": "-0.0506"
+        },
+        "marginRate": "0.04"
     },
     {
         "name": "XAG_HKD",
-        "type": "METAL"
+        "type": "METAL",
+        "pipLocation": -4,
+        "PriceDesimals": 5,
+        "tradeSizeDesimals": 0,
+        "minimumTradeSize": "1",
+        "financing": {
+            "longRate": "-0.1107",
+            "shortRate": "-0.0262"
+        },
+        "marginRate": "0.1"
     },
     {
         "name": "AUD_HKD",
-        "type": "CURRENCY"
+        "type": "CURRENCY",
+        "pipLocation": -4,
+        "PriceDesimals": 5,
+        "tradeSizeDesimals": 0,
+        "minimumTradeSize": "1",
+        "financing": {
+            "longRate": "-0.0635",
+            "shortRate": "-0.0712"
+        },
+        "marginRate": "0.1"
     },
     {
         "name": "ESPIX_EUR",
-        "type": "CFD"
+        "type": "CFD",
+        "pipLocation": 0,
+        "PriceDesimals": 1,
+        "tradeSizeDesimals": 1,
+        "minimumTradeSize": "0.1",
+        "financing": {
+            "longRate": "-0.0641",
+            "shortRate": "0.0141"
+        },
+        "marginRate": "0.1"
     },
     {
         "name": "NZD_CHF",
-        "type": "CURRENCY"
+        "type": "CURRENCY",
+        "pipLocation": -4,
+        "PriceDesimals": 5,
+        "tradeSizeDesimals": 0,
+        "minimumTradeSize": "1",
+        "financing": {
+            "longRate": "0.0286",
+            "shortRate": "-0.0513"
+        },
+        "marginRate": "0.05"
     },
     {
         "name": "AUD_CHF",
-        "type": "CURRENCY"
+        "type": "CURRENCY",
+        "pipLocation": -4,
+        "PriceDesimals": 5,
+        "tradeSizeDesimals": 0,
+        "minimumTradeSize": "1",
+        "financing": {
+            "longRate": "0.0198",
+            "shortRate": "-0.0429"
+        },
+        "marginRate": "0.05"
     },
     {
         "name": "GBP_CHF",
-        "type": "CURRENCY"
+        "type": "CURRENCY",
+        "pipLocation": -4,
+        "PriceDesimals": 5,
+        "tradeSizeDesimals": 0,
+        "minimumTradeSize": "1",
+        "financing": {
+            "longRate": "0.0272",
+            "shortRate": "-0.0491"
+        },
+        "marginRate": "0.04"
     },
     {
         "name": "USD_THB",
-        "type": "CURRENCY"
+        "type": "CURRENCY",
+        "pipLocation": -2,
+        "PriceDesimals": 3,
+        "tradeSizeDesimals": 0,
+        "minimumTradeSize": "1",
+        "financing": {
+            "longRate": "-0.0531",
+            "shortRate": "-0.0331"
+        },
+        "marginRate": "0.05"
     },
     {
         "name": "XAU_JPY",
-        "type": "METAL"
+        "type": "METAL",
+        "pipLocation": 1,
+        "PriceDesimals": 0,
+        "tradeSizeDesimals": 0,
+        "minimumTradeSize": "1",
+        "financing": {
+            "longRate": "-0.01",
+            "shortRate": "-0.0123"
+        },
+        "marginRate": "0.05"
     },
     {
         "name": "XAU_HKD",
-        "type": "METAL"
+        "type": "METAL",
+        "pipLocation": -2,
+        "PriceDesimals": 3,
+        "tradeSizeDesimals": 0,
+        "minimumTradeSize": "1",
+        "financing": {
+            "longRate": "-0.1087",
+            "shortRate": "-0.0271"
+        },
+        "marginRate": "0.05"
     },
     {
         "name": "GBP_CAD",
-        "type": "CURRENCY"
+        "type": "CURRENCY",
+        "pipLocation": -4,
+        "PriceDesimals": 5,
+        "tradeSizeDesimals": 0,
+        "minimumTradeSize": "1",
+        "financing": {
+            "longRate": "-0.0079",
+            "shortRate": "-0.0143"
+        },
+        "marginRate": "0.03333333333333"
     },
     {
         "name": "EUR_HKD",
-        "type": "CURRENCY"
+        "type": "CURRENCY",
+        "pipLocation": -4,
+        "PriceDesimals": 5,
+        "tradeSizeDesimals": 0,
+        "minimumTradeSize": "1",
+        "financing": {
+            "longRate": "-0.068",
+            "shortRate": "-0.0664"
+        },
+        "marginRate": "0.1"
     },
     {
         "name": "CHF_JPY",
-        "type": "CURRENCY"
+        "type": "CURRENCY",
+        "pipLocation": -2,
+        "PriceDesimals": 3,
+        "tradeSizeDesimals": 0,
+        "minimumTradeSize": "1",
+        "financing": {
+            "longRate": "0.0046",
+            "shortRate": "-0.0261"
+        },
+        "marginRate": "0.04"
     },
     {
         "name": "GBP_HKD",
-        "type": "CURRENCY"
+        "type": "CURRENCY",
+        "pipLocation": -4,
+        "PriceDesimals": 5,
+        "tradeSizeDesimals": 0,
+        "minimumTradeSize": "1",
+        "financing": {
+            "longRate": "-0.0552",
+            "shortRate": "-0.0781"
+        },
+        "marginRate": "0.1"
     },
     {
         "name": "EUR_NZD",
-        "type": "CURRENCY"
+        "type": "CURRENCY",
+        "pipLocation": -4,
+        "PriceDesimals": 5,
+        "tradeSizeDesimals": 0,
+        "minimumTradeSize": "1",
+        "financing": {
+            "longRate": "-0.025",
+            "shortRate": "0.0028"
+        },
+        "marginRate": "0.05"
     },
     {
         "name": "XAG_AUD",
-        "type": "METAL"
+        "type": "METAL",
+        "pipLocation": -4,
+        "PriceDesimals": 5,
+        "tradeSizeDesimals": 0,
+        "minimumTradeSize": "1",
+        "financing": {
+            "longRate": "-0.0587",
+            "shortRate": "0.0346"
+        },
+        "marginRate": "0.1"
     },
     {
         "name": "WTICO_USD",
-        "type": "CFD"
+        "type": "CFD",
+        "pipLocation": -2,
+        "PriceDesimals": 3,
+        "tradeSizeDesimals": 0,
+        "minimumTradeSize": "1",
+        "financing": {
+            "longRate": "0.030",
+            "shortRate": "-0.080"
+        },
+        "marginRate": "0.1"
     },
     {
         "name": "XAG_NZD",
-        "type": "METAL"
+        "type": "METAL",
+        "pipLocation": -4,
+        "PriceDesimals": 5,
+        "tradeSizeDesimals": 0,
+        "minimumTradeSize": "1",
+        "financing": {
+            "longRate": "-0.0678",
+            "shortRate": "0.0428"
+        },
+        "marginRate": "0.1"
     },
     {
         "name": "AUD_SGD",
-        "type": "CURRENCY"
+        "type": "CURRENCY",
+        "pipLocation": -4,
+        "PriceDesimals": 5,
+        "tradeSizeDesimals": 0,
+        "minimumTradeSize": "1",
+        "financing": {
+            "longRate": "-0.0069",
+            "shortRate": "-0.0225"
+        },
+        "marginRate": "0.05"
     },
     {
         "name": "EUR_JPY",
-        "type": "CURRENCY"
+        "type": "CURRENCY",
+        "pipLocation": -2,
+        "PriceDesimals": 3,
+        "tradeSizeDesimals": 0,
+        "minimumTradeSize": "1",
+        "financing": {
+            "longRate": "0.0308",
+            "shortRate": "-0.0514"
+        },
+        "marginRate": "0.03333333333333"
     },
     {
         "name": "EUR_TRY",
-        "type": "CURRENCY"
+        "type": "CURRENCY",
+        "pipLocation": -4,
+        "PriceDesimals": 5,
+        "tradeSizeDesimals": 0,
+        "minimumTradeSize": "1",
+        "financing": {
+            "longRate": "-0.6808",
+            "shortRate": "0.2267"
+        },
+        "marginRate": "0.25"
     },
     {
         "name": "USD_JPY",
-        "type": "CURRENCY"
+        "type": "CURRENCY",
+        "pipLocation": -2,
+        "PriceDesimals": 3,
+        "tradeSizeDesimals": 0,
+        "minimumTradeSize": "1",
+        "financing": {
+            "longRate": "0.0453",
+            "shortRate": "-0.0654"
+        },
+        "marginRate": "0.03333333333333"
     },
     {
         "name": "SGD_JPY",
-        "type": "CURRENCY"
+        "type": "CURRENCY",
+        "pipLocation": -2,
+        "PriceDesimals": 3,
+        "tradeSizeDesimals": 0,
+        "minimumTradeSize": "1",
+        "financing": {
+            "longRate": "0.0258",
+            "shortRate": "-0.0514"
+        },
+        "marginRate": "0.05"
     },
     {
         "name": "GBP_ZAR",
-        "type": "CURRENCY"
+        "type": "CURRENCY",
+        "pipLocation": -4,
+        "PriceDesimals": 5,
+        "tradeSizeDesimals": 0,
+        "minimumTradeSize": "1",
+        "financing": {
+            "longRate": "-0.0509",
+            "shortRate": "0.0061"
+        },
+        "marginRate": "0.05"
     },
     {
         "name": "XAG_JPY",
-        "type": "METAL"
+        "type": "METAL",
+        "pipLocation": 0,
+        "PriceDesimals": 1,
+        "tradeSizeDesimals": 0,
+        "minimumTradeSize": "1",
+        "financing": {
+            "longRate": "-0.0119",
+            "shortRate": "-0.0115"
+        },
+        "marginRate": "0.1"
     },
     {
         "name": "ZAR_JPY",
-        "type": "CURRENCY"
+        "type": "CURRENCY",
+        "pipLocation": -2,
+        "PriceDesimals": 3,
+        "tradeSizeDesimals": 0,
+        "minimumTradeSize": "1",
+        "financing": {
+            "longRate": "0.0515",
+            "shortRate": "-0.1123"
+        },
+        "marginRate": "0.05"
     },
     {
         "name": "CN50_USD",
-        "type": "CFD"
+        "type": "CFD",
+        "pipLocation": 0,
+        "PriceDesimals": 1,
+        "tradeSizeDesimals": 1,
+        "minimumTradeSize": "0.1",
+        "financing": {
+            "longRate": "-0.0783",
+            "shortRate": "0.0283"
+        },
+        "marginRate": "0.1"
     },
     {
         "name": "AUD_JPY",
-        "type": "CURRENCY"
+        "type": "CURRENCY",
+        "pipLocation": -2,
+        "PriceDesimals": 3,
+        "tradeSizeDesimals": 0,
+        "minimumTradeSize": "1",
+        "financing": {
+            "longRate": "0.0355",
+            "shortRate": "-0.0577"
+        },
+        "marginRate": "0.05"
     },
     {
         "name": "NZD_USD",
-        "type": "CURRENCY"
+        "type": "CURRENCY",
+        "pipLocation": -4,
+        "PriceDesimals": 5,
+        "tradeSizeDesimals": 0,
+        "minimumTradeSize": "1",
+        "financing": {
+            "longRate": "-0.0112",
+            "shortRate": "-0.0106"
+        },
+        "marginRate": "0.05"
     },
     {
         "name": "USD_HKD",
-        "type": "CURRENCY"
+        "type": "CURRENCY",
+        "pipLocation": -4,
+        "PriceDesimals": 5,
+        "tradeSizeDesimals": 0,
+        "minimumTradeSize": "1",
+        "financing": {
+            "longRate": "-0.0535",
+            "shortRate": "-0.0802"
+        },
+        "marginRate": "0.1"
     },
     {
         "name": "XPT_USD",
-        "type": "CFD"
+        "type": "CFD",
+        "pipLocation": -2,
+        "PriceDesimals": 3,
+        "tradeSizeDesimals": 0,
+        "minimumTradeSize": "1",
+        "financing": {
+            "longRate": "-0.071",
+            "shortRate": "0.021"
+        },
+        "marginRate": "0.1"
     },
     {
         "name": "SG30_SGD",
-        "type": "CFD"
+        "type": "CFD",
+        "pipLocation": -1,
+        "PriceDesimals": 2,
+        "tradeSizeDesimals": 1,
+        "minimumTradeSize": "0.1",
+        "financing": {
+            "longRate": "-0.0619",
+            "shortRate": "0.0119"
+        },
+        "marginRate": "0.1"
     },
     {
         "name": "CHF_ZAR",
-        "type": "CURRENCY"
+        "type": "CURRENCY",
+        "pipLocation": -4,
+        "PriceDesimals": 5,
+        "tradeSizeDesimals": 0,
+        "minimumTradeSize": "1",
+        "financing": {
+            "longRate": "-0.0975",
+            "shortRate": "0.0356"
+        },
+        "marginRate": "0.05"
     },
     {
         "name": "EUR_USD",
-        "type": "CURRENCY"
+        "type": "CURRENCY",
+        "pipLocation": -4,
+        "PriceDesimals": 5,
+        "tradeSizeDesimals": 0,
+        "minimumTradeSize": "1",
+        "financing": {
+            "longRate": "-0.0246",
+            "shortRate": "0.0038"
+        },
+        "marginRate": "0.03333333333333"
     },
     {
         "name": "XAU_EUR",
-        "type": "METAL"
+        "type": "METAL",
+        "pipLocation": -2,
+        "PriceDesimals": 3,
+        "tradeSizeDesimals": 0,
+        "minimumTradeSize": "1",
+        "financing": {
+            "longRate": "-0.0515",
+            "shortRate": "0.0285"
+        },
+        "marginRate": "0.05"
     },
     {
         "name": "XPD_USD",
-        "type": "CFD"
+        "type": "CFD",
+        "pipLocation": -2,
+        "PriceDesimals": 3,
+        "tradeSizeDesimals": 0,
+        "minimumTradeSize": "1",
+        "financing": {
+            "longRate": "-0.053",
+            "shortRate": "0.003"
+        },
+        "marginRate": "0.1"
     },
     {
         "name": "GBP_SGD",
-        "type": "CURRENCY"
+        "type": "CURRENCY",
+        "pipLocation": -4,
+        "PriceDesimals": 5,
+        "tradeSizeDesimals": 0,
+        "minimumTradeSize": "1",
+        "financing": {
+            "longRate": "0.00050",
+            "shortRate": "-0.0291"
+        },
+        "marginRate": "0.05"
     },
     {
         "name": "USD_SEK",
-        "type": "CURRENCY"
+        "type": "CURRENCY",
+        "pipLocation": -4,
+        "PriceDesimals": 5,
+        "tradeSizeDesimals": 0,
+        "minimumTradeSize": "1",
+        "financing": {
+            "longRate": "0.0045",
+            "shortRate": "-0.0252"
+        },
+        "marginRate": "0.05"
     },
     {
         "name": "DE30_EUR",
-        "type": "CFD"
+        "type": "CFD",
+        "pipLocation": 0,
+        "PriceDesimals": 1,
+        "tradeSizeDesimals": 1,
+        "minimumTradeSize": "0.1",
+        "financing": {
+            "longRate": "-0.0641",
+            "shortRate": "0.0141"
+        },
+        "marginRate": "0.05"
     },
     {
         "name": "USD_HUF",
-        "type": "CURRENCY"
+        "type": "CURRENCY",
+        "pipLocation": -2,
+        "PriceDesimals": 3,
+        "tradeSizeDesimals": 0,
+        "minimumTradeSize": "1",
+        "financing": {
+            "longRate": "-0.0534",
+            "shortRate": "0.0025"
+        },
+        "marginRate": "0.05"
     },
     {
         "name": "EUR_CAD",
-        "type": "CURRENCY"
+        "type": "CURRENCY",
+        "pipLocation": -4,
+        "PriceDesimals": 5,
+        "tradeSizeDesimals": 0,
+        "minimumTradeSize": "1",
+        "financing": {
+            "longRate": "-0.0203",
+            "shortRate": "-0.0022"
+        },
+        "marginRate": "0.03333333333333"
     },
     {
         "name": "EUR_DKK",
-        "type": "CURRENCY"
+        "type": "CURRENCY",
+        "pipLocation": -4,
+        "PriceDesimals": 5,
+        "tradeSizeDesimals": 0,
+        "minimumTradeSize": "1",
+        "financing": {
+            "longRate": "-0.0078",
+            "shortRate": "-0.0146"
+        },
+        "marginRate": "0.1"
     },
     {
         "name": "NATGAS_USD",
-        "type": "CFD"
+        "type": "CFD",
+        "pipLocation": -2,
+        "PriceDesimals": 3,
+        "tradeSizeDesimals": 0,
+        "minimumTradeSize": "1",
+        "financing": {
+            "longRate": "-0.923",
+            "shortRate": "0.873"
+        },
+        "marginRate": "0.1"
     },
     {
         "name": "XAG_CAD",
-        "type": "METAL"
+        "type": "METAL",
+        "pipLocation": -4,
+        "PriceDesimals": 5,
+        "tradeSizeDesimals": 0,
+        "minimumTradeSize": "1",
+        "financing": {
+            "longRate": "-0.0629",
+            "shortRate": "0.0377"
+        },
+        "marginRate": "0.1"
     },
     {
         "name": "JP225_USD",
-        "type": "CFD"
+        "type": "CFD",
+        "pipLocation": 0,
+        "PriceDesimals": 1,
+        "tradeSizeDesimals": 1,
+        "minimumTradeSize": "0.1",
+        "financing": {
+            "longRate": "-0.0783",
+            "shortRate": "0.0283"
+        },
+        "marginRate": "0.05"
     },
     {
         "name": "UK10YB_GBP",
-        "type": "CFD"
+        "type": "CFD",
+        "pipLocation": -2,
+        "PriceDesimals": 3,
+        "tradeSizeDesimals": 0,
+        "minimumTradeSize": "1",
+        "financing": {
+            "longRate": "-0.027",
+            "shortRate": "-0.023"
+        },
+        "marginRate": "0.2"
     },
     {
         "name": "AUD_CAD",
-        "type": "CURRENCY"
+        "type": "CURRENCY",
+        "pipLocation": -4,
+        "PriceDesimals": 5,
+        "tradeSizeDesimals": 0,
+        "minimumTradeSize": "1",
+        "financing": {
+            "longRate": "-0.0154",
+            "shortRate": "-0.0079"
+        },
+        "marginRate": "0.05"
     },
     {
         "name": "USD_MXN",
-        "type": "CURRENCY"
+        "type": "CURRENCY",
+        "pipLocation": -4,
+        "PriceDesimals": 5,
+        "tradeSizeDesimals": 0,
+        "minimumTradeSize": "1",
+        "financing": {
+            "longRate": "-0.0728",
+            "shortRate": "0.0384"
+        },
+        "marginRate": "0.05"
     },
     {
         "name": "GBP_USD",
-        "type": "CURRENCY"
+        "type": "CURRENCY",
+        "pipLocation": -4,
+        "PriceDesimals": 5,
+        "tradeSizeDesimals": 0,
+        "minimumTradeSize": "1",
+        "financing": {
+            "longRate": "-0.0121",
+            "shortRate": "-0.0082"
+        },
+        "marginRate": "0.03333333333333"
     },
     {
         "name": "XAU_CHF",
-        "type": "METAL"
+        "type": "METAL",
+        "pipLocation": -2,
+        "PriceDesimals": 3,
+        "tradeSizeDesimals": 0,
+        "minimumTradeSize": "1",
+        "financing": {
+            "longRate": "-0.0258",
+            "shortRate": "0.0025"
+        },
+        "marginRate": "0.05"
     },
     {
         "name": "XAG_SGD",
-        "type": "METAL"
+        "type": "METAL",
+        "pipLocation": -4,
+        "PriceDesimals": 5,
+        "tradeSizeDesimals": 0,
+        "minimumTradeSize": "1",
+        "financing": {
+            "longRate": "-0.0531",
+            "shortRate": "0.0245"
+        },
+        "marginRate": "0.1"
     },
     {
         "name": "CAD_CHF",
-        "type": "CURRENCY"
+        "type": "CURRENCY",
+        "pipLocation": -4,
+        "PriceDesimals": 5,
+        "tradeSizeDesimals": 0,
+        "minimumTradeSize": "1",
+        "financing": {
+            "longRate": "0.0234",
+            "shortRate": "-0.0462"
+        },
+        "marginRate": "0.04"
     },
     {
         "name": "BCO_USD",
-        "type": "CFD"
+        "type": "CFD",
+        "pipLocation": -2,
+        "PriceDesimals": 3,
+        "tradeSizeDesimals": 0,
+        "minimumTradeSize": "1",
+        "financing": {
+            "longRate": "0.064",
+            "shortRate": "-0.114"
+        },
+        "marginRate": "0.1"
     },
     {
         "name": "AUD_NZD",
-        "type": "CURRENCY"
+        "type": "CURRENCY",
+        "pipLocation": -4,
+        "PriceDesimals": 5,
+        "tradeSizeDesimals": 0,
+        "minimumTradeSize": "1",
+        "financing": {
+            "longRate": "-0.0199",
+            "shortRate": "-0.0026"
+        },
+        "marginRate": "0.05"
     },
     {
         "name": "CAD_SGD",
-        "type": "CURRENCY"
+        "type": "CURRENCY",
+        "pipLocation": -4,
+        "PriceDesimals": 5,
+        "tradeSizeDesimals": 0,
+        "minimumTradeSize": "1",
+        "financing": {
+            "longRate": "-0.0041",
+            "shortRate": "-0.0272"
+        },
+        "marginRate": "0.05"
     },
     {
         "name": "FR40_EUR",
-        "type": "CFD"
+        "type": "CFD",
+        "pipLocation": 0,
+        "PriceDesimals": 1,
+        "tradeSizeDesimals": 1,
+        "minimumTradeSize": "0.1",
+        "financing": {
+            "longRate": "-0.0641",
+            "shortRate": "0.0141"
+        },
+        "marginRate": "0.05"
     },
     {
         "name": "USB30Y_USD",
-        "type": "CFD"
+        "type": "CFD",
+        "pipLocation": -2,
+        "PriceDesimals": 3,
+        "tradeSizeDesimals": 0,
+        "minimumTradeSize": "1",
+        "financing": {
+            "longRate": "-0.026",
+            "shortRate": "-0.024"
+        },
+        "marginRate": "0.2"
     },
     {
         "name": "NZD_HKD",
-        "type": "CURRENCY"
+        "type": "CURRENCY",
+        "pipLocation": -4,
+        "PriceDesimals": 5,
+        "tradeSizeDesimals": 0,
+        "minimumTradeSize": "1",
+        "financing": {
+            "longRate": "-0.0541",
+            "shortRate": "-0.0804"
+        },
+        "marginRate": "0.1"
     },
     {
         "name": "USB05Y_USD",
-        "type": "CFD"
+        "type": "CFD",
+        "pipLocation": -2,
+        "PriceDesimals": 3,
+        "tradeSizeDesimals": 0,
+        "minimumTradeSize": "1",
+        "financing": {
+            "longRate": "-0.041",
+            "shortRate": "-0.009"
+        },
+        "marginRate": "0.2"
     },
     {
         "name": "XAU_AUD",
-        "type": "METAL"
+        "type": "METAL",
+        "pipLocation": -2,
+        "PriceDesimals": 3,
+        "tradeSizeDesimals": 0,
+        "minimumTradeSize": "1",
+        "financing": {
+            "longRate": "-0.0567",
+            "shortRate": "0.0337"
+        },
+        "marginRate": "0.05"
     },
     {
         "name": "WHEAT_USD",
-        "type": "CFD"
+        "type": "CFD",
+        "pipLocation": -2,
+        "PriceDesimals": 3,
+        "tradeSizeDesimals": 0,
+        "minimumTradeSize": "1",
+        "financing": {
+            "longRate": "-0.061",
+            "shortRate": "0.011"
+        },
+        "marginRate": "0.1"
     },
     {
         "name": "EUR_HUF",
-        "type": "CURRENCY"
+        "type": "CURRENCY",
+        "pipLocation": -2,
+        "PriceDesimals": 3,
+        "tradeSizeDesimals": 0,
+        "minimumTradeSize": "1",
+        "financing": {
+            "longRate": "-0.0783",
+            "shortRate": "0.006"
+        },
+        "marginRate": "0.05"
     },
     {
         "name": "NZD_JPY",
-        "type": "CURRENCY"
+        "type": "CURRENCY",
+        "pipLocation": -2,
+        "PriceDesimals": 3,
+        "tradeSizeDesimals": 0,
+        "minimumTradeSize": "1",
+        "financing": {
+            "longRate": "0.044",
+            "shortRate": "-0.066"
+        },
+        "marginRate": "0.05"
     },
     {
         "name": "EUR_CZK",
-        "type": "CURRENCY"
+        "type": "CURRENCY",
+        "pipLocation": -4,
+        "PriceDesimals": 5,
+        "tradeSizeDesimals": 0,
+        "minimumTradeSize": "1",
+        "financing": {
+            "longRate": "-0.0407",
+            "shortRate": "-0.0061"
+        },
+        "marginRate": "0.05"
     },
     {
         "name": "XAG_USD",
-        "type": "METAL"
+        "type": "METAL",
+        "pipLocation": -4,
+        "PriceDesimals": 5,
+        "tradeSizeDesimals": 0,
+        "minimumTradeSize": "1",
+        "financing": {
+            "longRate": "-0.0672",
+            "shortRate": "0.044"
+        },
+        "marginRate": "0.1"
     },
     {
         "name": "CHF_HKD",
-        "type": "CURRENCY"
+        "type": "CURRENCY",
+        "pipLocation": -4,
+        "PriceDesimals": 5,
+        "tradeSizeDesimals": 0,
+        "minimumTradeSize": "1",
+        "financing": {
+            "longRate": "-0.0941",
+            "shortRate": "-0.0407"
+        },
+        "marginRate": "0.1"
     },
     {
         "name": "EUR_GBP",
-        "type": "CURRENCY"
+        "type": "CURRENCY",
+        "pipLocation": -4,
+        "PriceDesimals": 5,
+        "tradeSizeDesimals": 0,
+        "minimumTradeSize": "1",
+        "financing": {
+            "longRate": "-0.0228",
+            "shortRate": "0.0015"
+        },
+        "marginRate": "0.03333333333333"
     },
     {
         "name": "USD_CZK",
-        "type": "CURRENCY"
+        "type": "CURRENCY",
+        "pipLocation": -4,
+        "PriceDesimals": 5,
+        "tradeSizeDesimals": 0,
+        "minimumTradeSize": "1",
+        "financing": {
+            "longRate": "-0.0249",
+            "shortRate": "-0.0187"
+        },
+        "marginRate": "0.05"
     },
     {
         "name": "US30_USD",
-        "type": "CFD"
+        "type": "CFD",
+        "pipLocation": 0,
+        "PriceDesimals": 1,
+        "tradeSizeDesimals": 1,
+        "minimumTradeSize": "0.1",
+        "financing": {
+            "longRate": "-0.0783",
+            "shortRate": "0.0283"
+        },
+        "marginRate": "0.05"
     },
     {
         "name": "EUR_NOK",
-        "type": "CURRENCY"
+        "type": "CURRENCY",
+        "pipLocation": -4,
+        "PriceDesimals": 5,
+        "tradeSizeDesimals": 0,
+        "minimumTradeSize": "1",
+        "financing": {
+            "longRate": "-0.0168",
+            "shortRate": "-0.0071"
+        },
+        "marginRate": "0.05"
     },
     {
         "name": "JP225Y_JPY",
-        "type": "CFD"
+        "type": "CFD",
+        "pipLocation": 0,
+        "PriceDesimals": 1,
+        "tradeSizeDesimals": 0,
+        "minimumTradeSize": "1",
+        "financing": {
+            "longRate": "-0.0257",
+            "shortRate": "-0.0243"
+        },
+        "marginRate": "0.05"
     },
     {
         "name": "UK100_GBP",
-        "type": "CFD"
+        "type": "CFD",
+        "pipLocation": 0,
+        "PriceDesimals": 1,
+        "tradeSizeDesimals": 1,
+        "minimumTradeSize": "0.1",
+        "financing": {
+            "longRate": "-0.0769",
+            "shortRate": "0.0269"
+        },
+        "marginRate": "0.05"
     },
     {
         "name": "XAU_USD",
-        "type": "METAL"
+        "type": "METAL",
+        "pipLocation": -2,
+        "PriceDesimals": 3,
+        "tradeSizeDesimals": 0,
+        "minimumTradeSize": "1",
+        "financing": {
+            "longRate": "-0.0652",
+            "shortRate": "0.0431"
+        },
+        "marginRate": "0.05"
     },
     {
         "name": "GBP_NZD",
-        "type": "CURRENCY"
+        "type": "CURRENCY",
+        "pipLocation": -4,
+        "PriceDesimals": 5,
+        "tradeSizeDesimals": 0,
+        "minimumTradeSize": "1",
+        "financing": {
+            "longRate": "-0.0125",
+            "shortRate": "-0.0093"
+        },
+        "marginRate": "0.05"
     },
     {
         "name": "DE10YB_EUR",
-        "type": "CFD"
+        "type": "CFD",
+        "pipLocation": -2,
+        "PriceDesimals": 3,
+        "tradeSizeDesimals": 0,
+        "minimumTradeSize": "1",
+        "financing": {
+            "longRate": "-0.014",
+            "shortRate": "-0.036"
+        },
+        "marginRate": "0.2"
     },
     {
         "name": "EUR_PLN",
-        "type": "CURRENCY"
+        "type": "CURRENCY",
+        "pipLocation": -4,
+        "PriceDesimals": 5,
+        "tradeSizeDesimals": 0,
+        "minimumTradeSize": "1",
+        "financing": {
+            "longRate": "-0.0309",
+            "shortRate": "0.0022"
+        },
+        "marginRate": "0.05"
     },
     {
         "name": "SUGAR_USD",
-        "type": "CFD"
+        "type": "CFD",
+        "pipLocation": -4,
+        "PriceDesimals": 5,
+        "tradeSizeDesimals": 0,
+        "minimumTradeSize": "1",
+        "financing": {
+            "longRate": "0.101",
+            "shortRate": "-0.151"
+        },
+        "marginRate": "0.1"
     },
     {
         "name": "GBP_PLN",
-        "type": "CURRENCY"
+        "type": "CURRENCY",
+        "pipLocation": -4,
+        "PriceDesimals": 5,
+        "tradeSizeDesimals": 0,
+        "minimumTradeSize": "1",
+        "financing": {
+            "longRate": "-0.0158",
+            "shortRate": "-0.0073"
+        },
+        "marginRate": "0.05"
     },
     {
         "name": "EUR_SEK",
-        "type": "CURRENCY"
+        "type": "CURRENCY",
+        "pipLocation": -4,
+        "PriceDesimals": 5,
+        "tradeSizeDesimals": 0,
+        "minimumTradeSize": "1",
+        "financing": {
+            "longRate": "-0.0111",
+            "shortRate": "-0.0123"
+        },
+        "marginRate": "0.05"
     },
     {
         "name": "USD_SGD",
-        "type": "CURRENCY"
+        "type": "CURRENCY",
+        "pipLocation": -4,
+        "PriceDesimals": 5,
+        "tradeSizeDesimals": 0,
+        "minimumTradeSize": "1",
+        "financing": {
+            "longRate": "0.0041",
+            "shortRate": "-0.0295"
+        },
+        "marginRate": "0.05"
     },
     {
         "name": "US2000_USD",
-        "type": "CFD"
+        "type": "CFD",
+        "pipLocation": -2,
+        "PriceDesimals": 3,
+        "tradeSizeDesimals": 1,
+        "minimumTradeSize": "0.1",
+        "financing": {
+            "longRate": "-0.0783",
+            "shortRate": "0.0283"
+        },
+        "marginRate": "0.1"
     },
     {
         "name": "HKD_JPY",
-        "type": "CURRENCY"
+        "type": "CURRENCY",
+        "pipLocation": -4,
+        "PriceDesimals": 5,
+        "tradeSizeDesimals": 0,
+        "minimumTradeSize": "1",
+        "financing": {
+            "longRate": "-0.0251",
+            "shortRate": "-0.1081"
+        },
+        "marginRate": "0.1"
     },
     {
         "name": "USD_CAD",
-        "type": "CURRENCY"
+        "type": "CURRENCY",
+        "pipLocation": -4,
+        "PriceDesimals": 5,
+        "tradeSizeDesimals": 0,
+        "minimumTradeSize": "1",
+        "financing": {
+            "longRate": "-0.0057",
+            "shortRate": "-0.0162"
+        },
+        "marginRate": "0.03333333333333"
     },
     {
         "name": "AUD_USD",
-        "type": "CURRENCY"
+        "type": "CURRENCY",
+        "pipLocation": -4,
+        "PriceDesimals": 5,
+        "tradeSizeDesimals": 0,
+        "minimumTradeSize": "1",
+        "financing": {
+            "longRate": "-0.0194",
+            "shortRate": "-0.0015"
+        },
+        "marginRate": "0.05"
     },
     {
         "name": "USB10Y_USD",
-        "type": "CFD"
+        "type": "CFD",
+        "pipLocation": -2,
+        "PriceDesimals": 3,
+        "tradeSizeDesimals": 0,
+        "minimumTradeSize": "1",
+        "financing": {
+            "longRate": "-0.043",
+            "shortRate": "-0.007"
+        },
+        "marginRate": "0.2"
     },
     {
         "name": "XAG_GBP",
-        "type": "METAL"
+        "type": "METAL",
+        "pipLocation": -4,
+        "PriceDesimals": 5,
+        "tradeSizeDesimals": 0,
+        "minimumTradeSize": "1",
+        "financing": {
+            "longRate": "-0.0654",
+            "shortRate": "0.0419"
+        },
+        "marginRate": "0.1"
     },
     {
         "name": "HK33_HKD",
-        "type": "CFD"
+        "type": "CFD",
+        "pipLocation": 0,
+        "PriceDesimals": 1,
+        "tradeSizeDesimals": 1,
+        "minimumTradeSize": "0.1",
+        "financing": {
+            "longRate": "-0.0747",
+            "shortRate": "0.0247"
+        },
+        "marginRate": "0.1"
     },
     {
         "name": "NZD_SGD",
-        "type": "CURRENCY"
+        "type": "CURRENCY",
+        "pipLocation": -4,
+        "PriceDesimals": 5,
+        "tradeSizeDesimals": 0,
+        "minimumTradeSize": "1",
+        "financing": {
+            "longRate": "0.001",
+            "shortRate": "-0.0319"
+        },
+        "marginRate": "0.05"
     },
     {
         "name": "SPX500_USD",
-        "type": "CFD"
+        "type": "CFD",
+        "pipLocation": 0,
+        "PriceDesimals": 1,
+        "tradeSizeDesimals": 1,
+        "minimumTradeSize": "0.1",
+        "financing": {
+            "longRate": "-0.0783",
+            "shortRate": "0.0283"
+        },
+        "marginRate": "0.05"
     },
     {
         "name": "GBP_JPY",
-        "type": "CURRENCY"
+        "type": "CURRENCY",
+        "pipLocation": -2,
+        "PriceDesimals": 3,
+        "tradeSizeDesimals": 0,
+        "minimumTradeSize": "1",
+        "financing": {
+            "longRate": "0.0431",
+            "shortRate": "-0.0637"
+        },
+        "marginRate": "0.03333333333333"
     },
     {
         "name": "USD_TRY",
-        "type": "CURRENCY"
+        "type": "CURRENCY",
+        "pipLocation": -4,
+        "PriceDesimals": 5,
+        "tradeSizeDesimals": 0,
+        "minimumTradeSize": "1",
+        "financing": {
+            "longRate": "-0.6646",
+            "shortRate": "0.197"
+        },
+        "marginRate": "0.25"
     },
     {
         "name": "USD_NOK",
-        "type": "CURRENCY"
+        "type": "CURRENCY",
+        "pipLocation": -4,
+        "PriceDesimals": 5,
+        "tradeSizeDesimals": 0,
+        "minimumTradeSize": "1",
+        "financing": {
+            "longRate": "-0.00090",
+            "shortRate": "-0.0197"
+        },
+        "marginRate": "0.05"
     },
     {
         "name": "USB02Y_USD",
-        "type": "CFD"
+        "type": "CFD",
+        "pipLocation": -2,
+        "PriceDesimals": 3,
+        "tradeSizeDesimals": 0,
+        "minimumTradeSize": "1",
+        "financing": {
+            "longRate": "-0.043",
+            "shortRate": "-0.007"
+        },
+        "marginRate": "0.2"
     },
     {
         "name": "XCU_USD",
-        "type": "CFD"
+        "type": "CFD",
+        "pipLocation": -4,
+        "PriceDesimals": 5,
+        "tradeSizeDesimals": 0,
+        "minimumTradeSize": "1",
+        "financing": {
+            "longRate": "-0.058",
+            "shortRate": "0.008"
+        },
+        "marginRate": "0.1"
     },
     {
         "name": "XAG_EUR",
-        "type": "METAL"
+        "type": "METAL",
+        "pipLocation": -4,
+        "PriceDesimals": 5,
+        "tradeSizeDesimals": 0,
+        "minimumTradeSize": "1",
+        "financing": {
+            "longRate": "-0.0534",
+            "shortRate": "0.0293"
+        },
+        "marginRate": "0.1"
     },
     {
         "name": "SGD_CHF",
-        "type": "CURRENCY"
+        "type": "CURRENCY",
+        "pipLocation": -4,
+        "PriceDesimals": 5,
+        "tradeSizeDesimals": 0,
+        "minimumTradeSize": "1",
+        "financing": {
+            "longRate": "0.01",
+            "shortRate": "-0.0365"
+        },
+        "marginRate": "0.05"
     },
     {
         "name": "USD_CNH",
-        "type": "CURRENCY"
+        "type": "CURRENCY",
+        "pipLocation": -4,
+        "PriceDesimals": 5,
+        "tradeSizeDesimals": 0,
+        "minimumTradeSize": "1",
+        "financing": {
+            "longRate": "-0.066",
+            "shortRate": "-0.064"
+        },
+        "marginRate": "0.05"
     },
     {
         "name": "XAU_SGD",
-        "type": "METAL"
+        "type": "METAL",
+        "pipLocation": -2,
+        "PriceDesimals": 3,
+        "tradeSizeDesimals": 0,
+        "minimumTradeSize": "1",
+        "financing": {
+            "longRate": "-0.0512",
+            "shortRate": "0.0236"
+        },
+        "marginRate": "0.05"
     },
     {
         "name": "CORN_USD",
-        "type": "CFD"
+        "type": "CFD",
+        "pipLocation": -2,
+        "PriceDesimals": 3,
+        "tradeSizeDesimals": 0,
+        "minimumTradeSize": "1",
+        "financing": {
+            "longRate": "-0.165",
+            "shortRate": "0.115"
+        },
+        "marginRate": "0.1"
     },
     {
         "name": "EUR_CHF",
-        "type": "CURRENCY"
+        "type": "CURRENCY",
+        "pipLocation": -4,
+        "PriceDesimals": 5,
+        "tradeSizeDesimals": 0,
+        "minimumTradeSize": "1",
+        "financing": {
+            "longRate": "0.0144",
+            "shortRate": "-0.037"
+        },
+        "marginRate": "0.04"
     },
     {
         "name": "EUR_SGD",
-        "type": "CURRENCY"
+        "type": "CURRENCY",
+        "pipLocation": -4,
+        "PriceDesimals": 5,
+        "tradeSizeDesimals": 0,
+        "minimumTradeSize": "1",
+        "financing": {
+            "longRate": "-0.0115",
+            "shortRate": "-0.0168"
+        },
+        "marginRate": "0.05"
     },
     {
         "name": "NZD_CAD",
-        "type": "CURRENCY"
+        "type": "CURRENCY",
+        "pipLocation": -4,
+        "PriceDesimals": 5,
+        "tradeSizeDesimals": 0,
+        "minimumTradeSize": "1",
+        "financing": {
+            "longRate": "-0.0068",
+            "shortRate": "-0.0163"
+        },
+        "marginRate": "0.05"
     }
 ]

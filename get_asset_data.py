@@ -37,7 +37,16 @@ def get_all_available_instruments(headers):
     ]
     instrument_list = []
     for instrument in instruments:
-        instrument_list.append({"name": instrument["name"], "type": instrument["type"]})
+        instrument_list.append({"name": instrument["name"],
+                                "type": instrument["type"],
+                                "pipLocation": instrument["pipLocation"], 
+                                "PriceDesimals": instrument["displayPrecision"], # number of decimal places in the price
+                                "tradeSizeDesimals": instrument["tradeUnitsPrecision"], # number of decimal places in the trade size
+                                "minimumTradeSize": instrument["minimumTradeSize"],
+                                "financing": instrument["financing"]["longRate"],
+                                "marginRate": instrument["marginRate"],
+                                "financing": {"longRate": instrument["financing"]["longRate"], 
+                                              "shortRate": instrument["financing"]["shortRate"]}})
 
     logging.info(f"Found {len(instrument_list)} instruments")
 
@@ -52,7 +61,7 @@ def get_all_available_instruments(headers):
 def get_candles_to_pickle(instrument, type, headers):
     # granularities = ["S5", "S10", "S15", "S30", "M1", "M2", "M4", "M5", "M10", "M15", "M30", "H1", "H2", "H3", "H4", "H6", "H8", "H12", "D", "W", "M"]
     granularities = ["D"]
-    original_from_time = "2010-01-01T00:00:00Z"
+    original_from_time = "2000-01-01T00:00:00Z"
     failed_gets = []
 
     for granularity in granularities:
