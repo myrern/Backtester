@@ -65,7 +65,7 @@ class Backtester:
     
     def iterative_backtest(self):
         iterative_backtest = IB.IterativeBactest(self.initial_balance, self.data)
-        self.data, self.strategy_name = iterative_backtest.test_IBS_strategy(0.6, 0.8)
+        self.data, self.strategy_name = iterative_backtest.test_IBS_strategy(0.4, 0.8)
         #self.data, self.strategy_name = iterative_backtest.test_IBS_strategy_enhanced(20, 12, 26, 14)
         #self.data, self.strategy_name = iterative_backtest.test_sma_strategy(150, 50, self.data)
         self.data.dropna(inplace=True)
