@@ -9,5 +9,7 @@ with open(file_path, "r") as f:
 
 # Create a Backtester instance and run the backtest
 # Make sure to pass the asset details correctly from tradeable_assets if needed
-backtester_instance = backtester.Backtester({"name": "ETH_USD", "type": "CRYPTO"}, iterative=True, optimize_parameters=False, initial_balance=10000)
+
+backtester_instance = backtester.Backtester({"name": "NAS100_USD", "type": ""}, iterative=True, optimize_parameters=False, initial_balance=100000)
+
 data = backtester_instance.run_backtest()
